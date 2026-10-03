@@ -3,1471 +3,1334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artigos de Zequinha Meireles - Patrulha Mirim</title>
-
-    <meta name="description" content="Leia todos os artigos escritos por Zequinha Meireles em Patrulha Mirim.">
-    <link rel="canonical" href="https://www.patrulhamirim.com.br/autor/zequinha-meireles/" />
-
+    <title>Patrulha Mirim</title>
+    <meta name="description" content="">
+    
     
     
     <link rel="icon" href="/static/uploads/icon.JPG" type="image/x-icon">
     <link rel="apple-touch-icon" href="/static/uploads/icon.JPG">
     
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-
+    <link rel="stylesheet" href="/themes/gshow_pop_v2/assets/css/style.css?v=2.0">
+    <!-- Bootstrap Icons (Usado internamente pelo CMS e para redes sociais) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Algumas lógicas do CMS dependem de classes Bootstrap puras (RaioX). Injetamos a versão ultra-leve do bootstrap apenas para os blocos do CMS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
-
+    
+    <!-- Sistema de Paletas de Cores -->
+    
+    <style>
+        :root {
+            --accent-color: #c4170c !important;
+            --accent-hover: #9c1209 !important;
+            --accent-dark: #750d07 !important;
+        }
+    </style>
     
 
-    <style>
-        body { background-color: #f6f6f6; color: #333333; }
-        .custom-hover:hover { opacity: 1 !important; text-decoration: underline !important; }
-        #searchResults::-webkit-scrollbar { width: 6px; }
-        #searchResults::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 4px; }
-        .img-zoom { transition: transform 0.4s ease; }
-        .card:hover .img-zoom { transform: scale(1.05); }
-        .text-editorial { color: #277a5b; }
-    </style>
+    
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
+<header class="gs-header">
+    <div class="gs-header__container">
+        <!-- Lado Esquerdo -->
+        <div class="gs-header__left">
+            <button class="gs-header__menu-btn" id="gs-menu-toggle" aria-label="Abrir Menu">
+                <i class="bi bi-list"></i>
+                <span class="gs-header__menu-text">MENU</span>
+            </button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background-color: #2b5c92;">
-        <div class="container py-1 py-lg-2">
-
-            <a class="navbar-brand fw-bold d-flex align-items-center me-lg-5" href="/">
+            <a href="/" class="gs-header__logo">
                 
-                    <img src="/static/uploads/patrulha-mirim.JPG" alt="Patrulha Mirim" width="150" height="40" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="/static/uploads/patrulha-mirim.JPG" alt="Patrulha Mirim">
                 
             </a>
+        </div>
 
-            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar menu de navegação">
-                <i class="bi bi-list text-white" style="font-size: 1.8rem;"></i>
+        <!-- Centro: Nome do Site com fonte fina -->
+        <a href="/" class="gs-header__center">
+            Patrulha Mirim
+        </a>
+
+        <!-- Lado Direito: Buscar -->
+        <div class="gs-header__right">
+            <button class="gs-header__right-item" id="gs-search-toggle" aria-label="Pesquisar" style="background:none; border:none; color:#fff;">
+                <i class="bi bi-search"></i>
+                <span style="text-transform: uppercase;">Buscar</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto gap-1 gap-lg-3">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/" style="font-size: 0.95rem;">Início</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/categoria/carros/" style="font-size: 0.95rem;">Carros</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/categoria/guias/" style="font-size: 0.95rem;">Guias</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/categoria/testes/" style="font-size: 0.95rem;">Testes</a>
-                        </li>
-                        
-                    
-                </ul>
-                <form class="d-flex position-relative mt-3 mt-lg-0" onsubmit="event.preventDefault();" style="width: 100%; max-width: 320px;">
-                    <div class="input-group">
-                        <input class="form-control border-0 shadow-none py-2 ps-3" type="search" id="searchInput" placeholder="Pesquisar por..." autocomplete="off" style="font-size: 0.95rem; border-radius: 4px 0 0 4px;">
-                        <span class="input-group-text bg-white border-0 text-muted pe-3" style="border-radius: 0 4px 4px 0;">
-                            <i class="bi bi-search"></i>
-                        </span>
-                    </div>
-                    <div id="searchResults" class="list-group position-absolute w-100 shadow-lg rounded-3 d-none" style="top: 110%; z-index: 1000; max-height: 350px; overflow-y: auto;"></div>
-                </form>
-            </div>
         </div>
-    </nav>
+    </div>
+</header>
 
-    <main class="container mt-5 mb-5 flex-grow-1">
+<!-- Overlay de Busca (Search Modal) -->
+<div class="gs-search-overlay" id="gs-search-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; padding:2rem;">
+    <button id="gs-search-close" style="position:absolute; top:20px; right:30px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer;"><i class="bi bi-x-lg"></i></button>
+    <div style="max-width:600px; margin: 4rem auto 0; text-align:center;">
+        <input type="text" id="gs-search-input" placeholder="O que você está procurando?" style="width:100%; padding:1rem; font-size:1.5rem; border:none; border-bottom:2px solid var(--accent-color); background:transparent; color:#fff; outline:none; font-family:var(--font-ui);">
+        <div id="gs-search-results" style="margin-top:2rem; text-align:left; max-height:60vh; overflow-y:auto; font-family:var(--font-ui);"></div>
+    </div>
+</div>
 
-        <div class="card border-0 bg-white rounded-4 p-4 p-md-5 mb-5 shadow-sm">
-            <div class="row align-items-center text-center text-md-start">
-                <div class="col-md-auto mb-4 mb-md-0 d-flex justify-content-center">
-                    
-                    <div class="bg-secondary text-white rounded-circle shadow d-flex align-items-center justify-content-center" style="width: 160px; height: 160px; border: 4px solid #fff;">
-                        <i class="bi bi-person" style="font-size: 5rem;"></i>
-                    </div>
-                    
-                </div>
-                <div class="col-md">
-                    <span class="text-uppercase small text-muted tracking-wide fw-bold"><i class="bi bi-pen"></i> Perfil do Autor</span>
-                    <h1 class="display-5 fw-bold mb-3">Zequinha Meireles</h1>
+<!-- Sub-Barra de Categoria (Rosa Escuro) -->
+<div class="gs-header__subbar">
+    
+        <span>Patrulha Mirim</span>
+    
+</div>
 
-                    
+<!-- Overlay Escuro do Menu -->
+<div class="gs-overlay" id="gs-overlay"></div>
 
-                    <div class="d-flex gap-2 justify-content-center justify-content-md-start">
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- Menu Oculto (Offcanvas) -->
+<nav class="gs-nav-offcanvas" id="gs-offcanvas">
+    <button class="gs-nav-offcanvas__close" id="gs-menu-close" aria-label="Fechar Menu">
+        <i class="bi bi-x-lg"></i>
+    </button>
+    <br><br>
+    
+        <a href="/">INÍCIO</a>
+        
+            <a href="/categoria/carros/">Carros</a>
+        
+            <a href="/categoria/guias/">Guias</a>
+        
+            <a href="/categoria/testes/">Testes</a>
+        
+    
+</nav>
 
-        <h3 class="fw-bold mb-4 text-dark display-6 border-bottom pb-3">Artigos Publicados (77)</h3>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- MENU HAMBURGUER LOGIC ---
+        const toggleBtn = document.getElementById('gs-menu-toggle');
+        const closeBtn = document.getElementById('gs-menu-close');
+        const offcanvas = document.getElementById('gs-offcanvas');
+        const overlay = document.getElementById('gs-overlay');
 
-        <div class="row g-4 mb-5">
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/5-passos-essenciais-para-abrir-sua-oficina-em-fortaleza/" class="overflow-hidden">
-                        <img src="/static/uploads/5-passos-essenciais-para-abrir-sua-oficina-em-fortaleza.jpg" alt="None" title="5 passos essenciais para abrir sua oficina em Fortaleza" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/5-passos-essenciais-para-abrir-sua-oficina-em-fortaleza/" class="text-decoration-none text-dark custom-hover fw-bold">5 passos essenciais para abrir sua oficina em Fortaleza</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 01/10/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-garantir-sua-placa-padrao-mercosul-com-facilidade-e-rapidez/" class="overflow-hidden">
-                        <img src="/static/uploads/como-garantir-sua-placa-padrao-mercosul-com-facilidade-e-rapidez.jpg" alt="None" title="Como garantir sua placa padrão Mercosul com facilidade e rapidez" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-garantir-sua-placa-padrao-mercosul-com-facilidade-e-rapidez/" class="text-decoration-none text-dark custom-hover fw-bold">Como garantir sua placa padrão Mercosul com facilidade e rapidez</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 30/09/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/itens-essenciais-para-elevar-o-padrao-do-seu-cafe-truck/" class="overflow-hidden">
-                        <img src="/static/uploads/itens-essenciais-para-elevar-o-padrao-do-seu-cafe-truck.jpg" alt="None" title="Itens essenciais para elevar o padrão do seu café truck" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/itens-essenciais-para-elevar-o-padrao-do-seu-cafe-truck/" class="text-decoration-none text-dark custom-hover fw-bold">Itens essenciais para elevar o padrão do seu café truck</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 26/09/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-enviar-seu-carro-com-seguranca-para-outro-estado/" class="overflow-hidden">
-                        <img src="/static/uploads/como-enviar-seu-carro-com-seguranca-para-outro-estado.jpg" alt="None" title="Como enviar seu carro com segurança para outro estado" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-enviar-seu-carro-com-seguranca-para-outro-estado/" class="text-decoration-none text-dark custom-hover fw-bold">Como enviar seu carro com segurança para outro estado</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 24/09/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/por-que-usar-dispositivos-de-impressao-nao-fiscais-em-oficinas-e-concessionarias/" class="overflow-hidden">
-                        <img src="/static/uploads/por-que-usar-dispositivos-de-impressao-nao-fiscais-em-oficinas-e-concessionarias.jpg" alt="None" title="Por que usar dispositivos de impressão não fiscais em oficinas e concessionárias?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/por-que-usar-dispositivos-de-impressao-nao-fiscais-em-oficinas-e-concessionarias/" class="text-decoration-none text-dark custom-hover fw-bold">Por que usar dispositivos de impressão não fiscais em oficinas e concessionárias?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 15/09/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/o-que-fazer-se-o-seu-emplacamento-sofrer-algum-dano/" class="overflow-hidden">
-                        <img src="/static/uploads/o-que-fazer-se-o-seu-emplacamento-sofrer-algum-dano.jpg" alt="None" title="O que fazer se o seu emplacamento sofrer algum dano?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/o-que-fazer-se-o-seu-emplacamento-sofrer-algum-dano/" class="text-decoration-none text-dark custom-hover fw-bold">O que fazer se o seu emplacamento sofrer algum dano?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 14/09/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/5-dicas-essenciais-para-garantir-a-cobertura-ideal-no-seu-veiculo/" class="overflow-hidden">
-                        <img src="/static/uploads/5-dicas-essenciais-para-garantir-a-cobertura-ideal-no-seu-veiculo.jpg" alt="None" title="5 dicas essenciais para garantir a cobertura ideal no seu veículo" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/5-dicas-essenciais-para-garantir-a-cobertura-ideal-no-seu-veiculo/" class="text-decoration-none text-dark custom-hover fw-bold">5 dicas essenciais para garantir a cobertura ideal no seu veículo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 30/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-oficinas-autorizadas-para-reparos-de-seguros-automotivos/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-oficinas-autorizadas-para-reparos-de-seguros-automotivos.jpg" alt="None" title="Como escolher oficinas autorizadas para reparos de seguros automotivos" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-oficinas-autorizadas-para-reparos-de-seguros-automotivos/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher oficinas autorizadas para reparos de seguros automotivos</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 28/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/5-dicas-para-aprovacao-na-avaliacao-de-veiculos-em-campo-grande/" class="overflow-hidden">
-                        <img src="/static/uploads/5-dicas-para-aprovacao-na-avaliacao-de-veiculos-em-campo-grande.jpg" alt="None" title="5 dicas para aprovação na avaliação de veículos em Campo Grande" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/5-dicas-para-aprovacao-na-avaliacao-de-veiculos-em-campo-grande/" class="text-decoration-none text-dark custom-hover fw-bold">5 dicas para aprovação na avaliação de veículos em Campo Grande</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 24/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/quais-os-principais-desafios-do-trafego-na-ilha-de-santa-catarina/" class="overflow-hidden">
-                        <img src="/static/uploads/quais-os-principais-desafios-do-trafego-na-ilha-de-santa-catarina.jpg" alt="None" title="Quais os principais desafios do tráfego na Ilha de Santa Catarina?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/quais-os-principais-desafios-do-trafego-na-ilha-de-santa-catarina/" class="text-decoration-none text-dark custom-hover fw-bold">Quais os principais desafios do tráfego na Ilha de Santa Catarina?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 23/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro/" class="overflow-hidden">
-                        <img src="/static/uploads/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro.jpg" alt="None" title="Quais são os 5 benefícios do cuidado profissional para seu carro?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro/" class="text-decoration-none text-dark custom-hover fw-bold">Quais são os 5 benefícios do cuidado profissional para seu carro?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 21/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro-2/" class="overflow-hidden">
-                        <img src="/static/uploads/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro.jpg" alt="None" title="Quais são os 5 benefícios do cuidado profissional para seu carro?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro-2/" class="text-decoration-none text-dark custom-hover fw-bold">Quais são os 5 benefícios do cuidado profissional para seu carro?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 21/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro-3/" class="overflow-hidden">
-                        <img src="/static/uploads/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro.jpg" alt="None" title="Quais são os 5 benefícios do cuidado profissional para seu carro?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro-3/" class="text-decoration-none text-dark custom-hover fw-bold">Quais são os 5 benefícios do cuidado profissional para seu carro?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 21/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/dicas-essenciais-para-encontrar-revendedoras-confiaveis-de-automoveis/" class="overflow-hidden">
-                        <img src="/static/uploads/dicas-essenciais-para-encontrar-revendedoras-confiaveis-de-automoveis.jpg" alt="None" title="Dicas essenciais para encontrar revendedoras confiáveis de automóveis" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/dicas-essenciais-para-encontrar-revendedoras-confiaveis-de-automoveis/" class="text-decoration-none text-dark custom-hover fw-bold">Dicas essenciais para encontrar revendedoras confiáveis de automóveis</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 17/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/veja-qual-melhor-furgao-para-carga-no-mercado/" class="overflow-hidden">
-                        <img src="/static/uploads/veja-qual-melhor-furgao-para-carga-no-mercado.jpg" alt="None" title="Veja qual melhor furgão para carga no mercado " class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/veja-qual-melhor-furgao-para-carga-no-mercado/" class="text-decoration-none text-dark custom-hover fw-bold">Veja qual melhor furgão para carga no mercado </a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 07/08/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-acessorios-de-ar-para-veiculos-com-alta-eficiencia/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-acessorios-de-ar-para-veiculos-com-alta-eficiencia.jpg" alt="None" title="Como escolher acessórios de ar para veículos com alta eficiência" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-acessorios-de-ar-para-veiculos-com-alta-eficiencia/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher acessórios de ar para veículos com alta eficiência</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 24/07/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-o-melhor-martelinho-de-ouro-em-porto-alegre/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-o-melhor-martelinho-de-ouro-em-porto-alegre.jpg" alt="None" title="Como escolher o melhor martelinho de ouro em Porto Alegre" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-o-melhor-martelinho-de-ouro-em-porto-alegre/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher o melhor martelinho de ouro em Porto Alegre</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 10/07/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/onde-encontrar-pneus-ideais-para-onix-em-sao-paulo/" class="overflow-hidden">
-                        <img src="/static/uploads/onde-encontrar-pneus-ideais-para-onix-em-sao-paulo.jpg" alt="None" title="Onde encontrar pneus ideais para Onix em São Paulo?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/onde-encontrar-pneus-ideais-para-onix-em-sao-paulo/" class="text-decoration-none text-dark custom-hover fw-bold">Onde encontrar pneus ideais para Onix em São Paulo?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 01/07/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/estrategias-para-cuidar-do-seu-pet-em-areas-de-garagem-automotiva/" class="overflow-hidden">
-                        <img src="/static/uploads/estrategias-para-cuidar-do-seu-pet-em-areas-de-garagem-automotiva.jpg" alt="None" title="Estratégias para cuidar do seu pet em áreas de garagem automotiva" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/estrategias-para-cuidar-do-seu-pet-em-areas-de-garagem-automotiva/" class="text-decoration-none text-dark custom-hover fw-bold">Estratégias para cuidar do seu pet em áreas de garagem automotiva</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 26/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-o-melhor-sistema-de-gestao-para-autopecas/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-o-melhor-sistema-de-gestao-para-autopecas.jpg" alt="None" title="Como escolher o melhor sistema de gestão para autopeças" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-o-melhor-sistema-de-gestao-para-autopecas/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher o melhor sistema de gestão para autopeças</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 21/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/top-4-viagens-de-trem-que-todo-amante-de-carros-deve-conhecer/" class="overflow-hidden">
-                        <img src="/static/uploads/top-4-viagens-de-trem-que-todo-amante-de-carros-deve-conhecer.jpg" alt="None" title="Top 4 viagens de trem que todo amante de carros deve conhecer" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/top-4-viagens-de-trem-que-todo-amante-de-carros-deve-conhecer/" class="text-decoration-none text-dark custom-hover fw-bold">Top 4 viagens de trem que todo amante de carros deve conhecer</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 09/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-o-frete-aereo-revoluciona-a-logistica-no-setor-automotivo/" class="overflow-hidden">
-                        <img src="/static/uploads/como-o-frete-aereo-revoluciona-a-logistica-no-setor-automotivo.jpg" alt="None" title="Como o frete aéreo revoluciona a logística no setor automotivo" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-o-frete-aereo-revoluciona-a-logistica-no-setor-automotivo/" class="text-decoration-none text-dark custom-hover fw-bold">Como o frete aéreo revoluciona a logística no setor automotivo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 09/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/tecnicas-essenciais-para-cuidar-dos-bancos-do-seu-automovel/" class="text-decoration-none text-dark custom-hover fw-bold">Técnicas essenciais para cuidar dos bancos do seu automóvel</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 04/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/5-dicas-essenciais-para-pneus-em-veiculos-escolares-e-comerciais/" class="overflow-hidden">
-                        <img src="/static/uploads/5-dicas-essenciais-para-pneus-em-veiculos-escolares-e-comerciais.jpg" alt="None" title="5 dicas essenciais para pneus em veículos escolares e comerciais" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/5-dicas-essenciais-para-pneus-em-veiculos-escolares-e-comerciais/" class="text-decoration-none text-dark custom-hover fw-bold">5 dicas essenciais para pneus em veículos escolares e comerciais</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 03/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-servicos-de-rastreamento-automotivo-confiaveis/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-servicos-de-rastreamento-automotivo-confiaveis.jpg" alt="None" title="Como escolher serviços de rastreamento automotivo confiáveis?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-servicos-de-rastreamento-automotivo-confiaveis/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher serviços de rastreamento automotivo confiáveis?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 02/06/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-o-melhor-carro-de-luxo-para-viagens-na-capital-mineira/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-o-melhor-carro-de-luxo-para-viagens-na-capital-mineira.jpg" alt="None" title="Como escolher o melhor carro de luxo para viagens na capital mineira?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-o-melhor-carro-de-luxo-para-viagens-na-capital-mineira/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher o melhor carro de luxo para viagens na capital mineira?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-replicas-exclusivas-de-onibus-para-colecionar/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-replicas-exclusivas-de-onibus-para-colecionar.jpg" alt="None" title="Como escolher réplicas exclusivas de ônibus para colecionar" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-replicas-exclusivas-de-onibus-para-colecionar/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher réplicas exclusivas de ônibus para colecionar</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 25/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/ea-fc-26-vs-ea-fc-25-o-que-mudou-de-verdade/" class="overflow-hidden">
-                        <img src="/static/uploads/ea-fc-26-vs-ea-fc-25-o-que-mudou-de-verdade.jpg" alt="None" title="EA FC 26 vs EA FC 25: O Que Mudou de Verdade?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/ea-fc-26-vs-ea-fc-25-o-que-mudou-de-verdade/" class="text-decoration-none text-dark custom-hover fw-bold">EA FC 26 vs EA FC 25: O Que Mudou de Verdade?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 19/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-potencializar-a-limpeza-do-seu-veiculo-com-alta-pressao/" class="overflow-hidden">
-                        <img src="/static/uploads/como-potencializar-a-limpeza-do-seu-veiculo-com-alta-pressao.jpg" alt="None" title="Como potencializar a limpeza do seu veículo com alta pressão" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-potencializar-a-limpeza-do-seu-veiculo-com-alta-pressao/" class="text-decoration-none text-dark custom-hover fw-bold">Como potencializar a limpeza do seu veículo com alta pressão</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 19/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/guia-pratico-para-reparos-metalicos-automotivos-na-regiao-de-bauru/" class="overflow-hidden">
-                        <img src="/static/uploads/guia-pratico-para-reparos-metalicos-automotivos-na-regiao-de-bauru.jpg" alt="None" title="Guia prático para reparos metálicos automotivos na região de Bauru" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/guia-pratico-para-reparos-metalicos-automotivos-na-regiao-de-bauru/" class="text-decoration-none text-dark custom-hover fw-bold">Guia prático para reparos metálicos automotivos na região de Bauru</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 08/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-garantir-a-seguranca-do-seu-carro-com-monitoramento-online/" class="overflow-hidden">
-                        <img src="/static/uploads/como-garantir-a-seguranca-do-seu-carro-com-monitoramento-online.jpg" alt="None" title="Como garantir a segurança do seu carro com monitoramento online" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-garantir-a-seguranca-do-seu-carro-com-monitoramento-online/" class="text-decoration-none text-dark custom-hover fw-bold">Como garantir a segurança do seu carro com monitoramento online</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 05/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/melhores-trajetos-de-carro-para-descobrir-os-encantos-de-salvador/" class="overflow-hidden">
-                        <img src="/static/uploads/melhores-trajetos-de-carro-para-descobrir-os-encantos-de-salvador.jpg" alt="None" title="Melhores trajetos de carro para descobrir os encantos de Salvador" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/melhores-trajetos-de-carro-para-descobrir-os-encantos-de-salvador/" class="text-decoration-none text-dark custom-hover fw-bold">Melhores trajetos de carro para descobrir os encantos de Salvador</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 01/05/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-resolver-a-burocracia-do-seu-carro-com-despachante-no-rio-de-janeiro/" class="overflow-hidden">
-                        <img src="/static/uploads/como-resolver-a-burocracia-do-seu-carro-com-despachante-no-rio-de-janeiro.jpg" alt="None" title="Como Resolver a Burocracia do seu Carro com Despachante no Rio de Janeiro" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-resolver-a-burocracia-do-seu-carro-com-despachante-no-rio-de-janeiro/" class="text-decoration-none text-dark custom-hover fw-bold">Como Resolver a Burocracia do seu Carro com Despachante no Rio de Janeiro</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 27/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/declaracao-de-saida-definitiva-do-pais-retroativa-prazos-multas-e-passo-a-passo/" class="overflow-hidden">
-                        <img src="/static/uploads/declaracao-de-saida-definitiva-do-pais-retroativa-prazos-multas-e-passo-a-passo.jpg" alt="None" title="Declaração de saída definitiva do país retroativa: Prazos, multas e passo a passo" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/declaracao-de-saida-definitiva-do-pais-retroativa-prazos-multas-e-passo-a-passo/" class="text-decoration-none text-dark custom-hover fw-bold">Declaração de saída definitiva do país retroativa: Prazos, multas e passo a passo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 21/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-cuidar-dos-pneus-para-garantir-viagens-seguras-e-estaveis/" class="overflow-hidden">
-                        <img src="/static/uploads/como-cuidar-dos-pneus-para-garantir-viagens-seguras-e-estaveis.jpg" alt="None" title="Como cuidar dos pneus para garantir viagens seguras e estáveis" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-cuidar-dos-pneus-para-garantir-viagens-seguras-e-estaveis/" class="text-decoration-none text-dark custom-hover fw-bold">Como cuidar dos pneus para garantir viagens seguras e estáveis</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 15/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/5-vantagens-de-usar-servicos-de-motoboys-terceirizados-no-rj/" class="overflow-hidden">
-                        <img src="/static/uploads/5-vantagens-de-usar-servicos-de-motoboys-terceirizados-no-rj.jpg" alt="None" title="5 vantagens de usar serviços de motoboys terceirizados no RJ" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/5-vantagens-de-usar-servicos-de-motoboys-terceirizados-no-rj/" class="text-decoration-none text-dark custom-hover fw-bold">5 vantagens de usar serviços de motoboys terceirizados no RJ</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 13/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/o-impacto-do-passado-antigo-nas-tecnologias-automotivas-atuais/" class="overflow-hidden">
-                        <img src="/static/uploads/o-impacto-do-passado-antigo-nas-tecnologias-automotivas-atuais.jpg" alt="None" title="O impacto do passado antigo nas tecnologias automotivas atuais" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/o-impacto-do-passado-antigo-nas-tecnologias-automotivas-atuais/" class="text-decoration-none text-dark custom-hover fw-bold">O impacto do passado antigo nas tecnologias automotivas atuais</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 11/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/por-que-optar-por-pecas-automotivas-remanufaturadas-vale-a-pena/" class="overflow-hidden">
-                        <img src="/static/uploads/por-que-optar-por-pecas-automotivas-remanufaturadas-vale-a-pena.jpg" alt="None" title="Por que optar por peças automotivas remanufaturadas vale a pena?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/por-que-optar-por-pecas-automotivas-remanufaturadas-vale-a-pena/" class="text-decoration-none text-dark custom-hover fw-bold">Por que optar por peças automotivas remanufaturadas vale a pena?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 09/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/top-opcoes-de-equipamentos-de-cabeca-para-veiculos-leves-eletricos/" class="overflow-hidden">
-                        <img src="/static/uploads/top-opcoes-de-equipamentos-de-cabeca-para-veiculos-leves-eletricos.jpg" alt="None" title="Top opções de equipamentos de cabeça para veículos leves elétricos" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/top-opcoes-de-equipamentos-de-cabeca-para-veiculos-leves-eletricos/" class="text-decoration-none text-dark custom-hover fw-bold">Top opções de equipamentos de cabeça para veículos leves elétricos</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 09/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-o-melhor-servico-de-guincho-no-rio-de-janeiro/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-o-melhor-servico-de-guincho-no-rio-de-janeiro.jpg" alt="None" title="Como escolher o melhor serviço de guincho no Rio de Janeiro" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-o-melhor-servico-de-guincho-no-rio-de-janeiro/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher o melhor serviço de guincho no Rio de Janeiro</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 07/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo/" class="overflow-hidden">
-                        <img src="/static/uploads/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo.jpg" alt="None" title="Qual o segredo para um cheirinho agradável dentro do seu veículo?" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo/" class="text-decoration-none text-dark custom-hover fw-bold">Qual o segredo para um cheirinho agradável dentro do seu veículo?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 03/04/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/ipva-o-que-e-como-funciona-e-quem-precisa-pagar/" class="overflow-hidden">
-                        <img src="/static/uploads/ipva-o-que-e-como-funciona-e-quem-precisa-pagar.jpg" alt="None" title="IPVA: O Que é, Como Funciona e Quem Precisa Pagar" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/ipva-o-que-e-como-funciona-e-quem-precisa-pagar/" class="text-decoration-none text-dark custom-hover fw-bold">IPVA: O Que é, Como Funciona e Quem Precisa Pagar</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 30/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/principais-ferramentas-para-avaliar-precos-de-carros-usados/" class="overflow-hidden">
-                        <img src="/static/uploads/principais-ferramentas-para-avaliar-precos-de-carros-usados.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/principais-ferramentas-para-avaliar-precos-de-carros-usados/" class="text-decoration-none text-dark custom-hover fw-bold">Principais ferramentas para avaliar preços de carros usados</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 25/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp.jpg" alt="None" title="Como escolher serviços exclusivos de resgate privado em SP" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp/" class="text-decoration-none text-dark custom-hover fw-bold">Como escolher serviços exclusivos de resgate privado em SP</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 23/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/o-que-levar-no-carro-para-acampar-com-as-criancas-lista-completa-e-dicas-praticas/" class="overflow-hidden">
-                        <img src="/static/uploads/acampar.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/o-que-levar-no-carro-para-acampar-com-as-criancas-lista-completa-e-dicas-praticas/" class="text-decoration-none text-dark custom-hover fw-bold">O Que Levar no Carro para Acampar com as Crianças: Lista Completa e Dicas Práticas</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 08/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-promover-sua-oficina-mecanica-na-internet/" class="overflow-hidden">
-                        <img src="/static/uploads/como-promover-sua-oficina-mecanica-na-internet.jpg" alt="None" title="Como promover sua oficina mecânica na internet" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-promover-sua-oficina-mecanica-na-internet/" class="text-decoration-none text-dark custom-hover fw-bold">Como promover sua oficina mecânica na internet</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 05/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca/" class="overflow-hidden">
-                        <img src="/static/uploads/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca.jpg" alt="None" title="Dicas para contratar locação de ônibus e vans em Jundiaí com segurança" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca/" class="text-decoration-none text-dark custom-hover fw-bold">Dicas para contratar locação de ônibus e vans em Jundiaí com segurança</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 03/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney/" class="overflow-hidden">
-                        <img src="/static/uploads/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney.jpg" alt="None" title="Roteiro automotivo: hotéis com temática de cinema perto da Disney" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney/" class="text-decoration-none text-dark custom-hover fw-bold">Roteiro automotivo: hotéis com temática de cinema perto da Disney</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 02/03/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/como-escolher-o-melhor-despachante-em-goiania/" class="overflow-hidden">
-                        <img src="/static/uploads/como-escolher-o-melhor-despachante-em-goiania.jpg" alt="None" title="Como Escolher o Melhor Despachante em Goiânia" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/como-escolher-o-melhor-despachante-em-goiania/" class="text-decoration-none text-dark custom-hover fw-bold">Como Escolher o Melhor Despachante em Goiânia</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 27/02/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/dicas-de-treinamentos-para-atuar-no-mercado-automotivo/" class="overflow-hidden">
-                        <img src="/static/uploads/dicas-de-treinamentos-para-atuar-no-mercado-automotivo.jpg" alt="None" title="Dicas de Treinamentos Para Atuar no Mercado Automotivo" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/dicas-de-treinamentos-para-atuar-no-mercado-automotivo/" class="text-decoration-none text-dark custom-hover fw-bold">Dicas de Treinamentos Para Atuar no Mercado Automotivo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 19/02/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/top-4-beneficios-do-transporte-privado-de-alto-padrao-em-brasilia/" class="overflow-hidden">
-                        <img src="/static/uploads/top-4-beneficios-do-transporte-privado-de-alto-padrao-em-brasilia.jpg" alt="None" title="Top 4 benefícios do transporte privado de alto padrão em Brasília" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/top-4-beneficios-do-transporte-privado-de-alto-padrao-em-brasilia/" class="text-decoration-none text-dark custom-hover fw-bold">Top 4 benefícios do transporte privado de alto padrão em Brasília</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 16/02/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/d/" class="text-decoration-none text-dark custom-hover fw-bold">d</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 30/01/2026</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/cafeteira-oster-2day-inox-design-sofisticado-e-cafe-de-qualidade/" class="overflow-hidden">
-                        <img src="/static/uploads/cafeteira.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/cafeteira-oster-2day-inox-design-sofisticado-e-cafe-de-qualidade/" class="text-decoration-none text-dark custom-hover fw-bold">Cafeteira Oster 2DAY Inox Design Sofisticado e Café de Qualidade</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 24/09/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/comparativo-de-veiculos-populares-qual-e-o-melhor-custo-beneficio-em-2025/" class="text-decoration-none text-dark custom-hover fw-bold">Comparativo de Veículos Populares: Qual é o Melhor Custo-Benefício em 2025?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 18/09/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/quando-trocar-a-suspensao-do-carro-sinais-de-alerta/" class="overflow-hidden">
-                        <img src="/static/uploads/pecas.webp" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/quando-trocar-a-suspensao-do-carro-sinais-de-alerta/" class="text-decoration-none text-dark custom-hover fw-bold">Quando Trocar a Suspensão do Carro? Sinais de Alerta</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 01/09/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/empresa-de-onibus-em-itupeva-transporte-seguro-e-confiavel-para-a-regiao/" class="overflow-hidden">
-                        <img src="/static/uploads/homem-onibus.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/empresa-de-onibus-em-itupeva-transporte-seguro-e-confiavel-para-a-regiao/" class="text-decoration-none text-dark custom-hover fw-bold">Empresa de Ônibus em Itupeva: Transporte Seguro e Confiável para a Região</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 18/08/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/testes-de-colisao-e-seguranca-das-cadeirinhas-para-auto-entenda-a-importancia/" class="overflow-hidden">
-                        <img src="/static/uploads/cadeirinha-bebe.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/testes-de-colisao-e-seguranca-das-cadeirinhas-para-auto-entenda-a-importancia/" class="text-decoration-none text-dark custom-hover fw-bold">Testes de Colisão e Segurança das Cadeirinhas para Auto: Entenda a Importância</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 22/07/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/guia-da-troca-de-oleo-de-carros-e-motos-tudo-o-que-voce-precisa-saber/" class="overflow-hidden">
-                        <img src="/static/uploads/trocando-oleo-motor.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/guia-da-troca-de-oleo-de-carros-e-motos-tudo-o-que-voce-precisa-saber/" class="text-decoration-none text-dark custom-hover fw-bold">Guia da Troca de Óleo de Carros e Motos: Tudo o que Você Precisa Saber</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 14/07/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/guia-completo-sobre-retentor-protegendo-seu-motor-contra-vazamentos/" class="overflow-hidden">
-                        <img src="/static/uploads/retentor.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/guia-completo-sobre-retentor-protegendo-seu-motor-contra-vazamentos/" class="text-decoration-none text-dark custom-hover fw-bold">Guia Completo Sobre Retentor: Protegendo Seu Motor Contra Vazamentos</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 30/06/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/presentes-para-geeks-ideias-criativas-para-amantes-de-carros-e-tecnologia/" class="overflow-hidden">
-                        <img src="/static/uploads/brinquedos.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/presentes-para-geeks-ideias-criativas-para-amantes-de-carros-e-tecnologia/" class="text-decoration-none text-dark custom-hover fw-bold">Presentes para Geeks: Ideias Criativas para Amantes de Carros e Tecnologia</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 20/06/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/descubra-onde-fazer-envelopamento-automotivo-em-balneario-camboriu/" class="overflow-hidden">
-                        <img src="/static/uploads/envelopar.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/descubra-onde-fazer-envelopamento-automotivo-em-balneario-camboriu/" class="text-decoration-none text-dark custom-hover fw-bold">Descubra Onde Fazer Envelopamento Automotivo em Balneário Camboriú</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 18/06/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/presenteando-com-emocao-sobre-quatro-rodas/" class="text-decoration-none text-dark custom-hover fw-bold">Presenteando com Emoção Sobre Quatro Rodas</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 12/06/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/aspirador-de-po-potente-praticidade-e-tecnologia-para-manter-o-interior-do-carro-limpo/" class="text-decoration-none text-dark custom-hover fw-bold">Aspirador de Pó Potente: Praticidade e Tecnologia para Manter o Interior do Carro Limpo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 11/06/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/a-historia-das-miniaturas-de-carros-e-onibus-paixao-em-escala-reduzida/" class="text-decoration-none text-dark custom-hover fw-bold">A História das Miniaturas de Carros e Ônibus: Paixão em Escala Reduzida</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 05/06/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/comprar-passagem-aerea-barata-o-guia-essencial-para-sua-proxima-viagem/" class="overflow-hidden">
-                        <img src="/static/uploads/passagens.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/comprar-passagem-aerea-barata-o-guia-essencial-para-sua-proxima-viagem/" class="text-decoration-none text-dark custom-hover fw-bold">Comprar Passagem Aérea Barata: O Guia Essencial para Sua Próxima Viagem</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 28/05/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/tudo-o-que-voce-precisa-saber-sobre-o-ipva-guia-completo/" class="overflow-hidden">
-                        <img src="/static/uploads/ipva-2.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/tudo-o-que-voce-precisa-saber-sobre-o-ipva-guia-completo/" class="text-decoration-none text-dark custom-hover fw-bold">Tudo o Que Você Precisa Saber Sobre o IPVA: Guia Completo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 25/05/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/guia-de-goiania-servicos-automotivos-completos-para-seu-carro/" class="overflow-hidden">
-                        <img src="/static/uploads/carro.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/guia-de-goiania-servicos-automotivos-completos-para-seu-carro/" class="text-decoration-none text-dark custom-hover fw-bold">Guia de Goiânia: Serviços Automotivos Completos para Seu Carro</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 07/05/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/cuidados-dentro-do-onibus-durante-a-excursao-com-criancas/" class="overflow-hidden">
-                        <img src="/static/uploads/crianca-onibus-2.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/cuidados-dentro-do-onibus-durante-a-excursao-com-criancas/" class="text-decoration-none text-dark custom-hover fw-bold">Cuidados Dentro do Ônibus Durante a Excursão com Crianças</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 21/02/2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/dolphin-mini-e-melhor-que-o-dolphin/" class="overflow-hidden">
-                        <img src="/static/uploads/byd-dolphin-vs-dolphin-mini.webp" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/dolphin-mini-e-melhor-que-o-dolphin/" class="text-decoration-none text-dark custom-hover fw-bold">Dolphin Mini é Melhor que o Dolphin?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 08/09/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/byd-dolphin-preco-autonomia-carregamento-eficiencia-e-desempenho/" class="overflow-hidden">
-                        <img src="/static/uploads/BYD-Dolphin-tudo.webp" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/byd-dolphin-preco-autonomia-carregamento-eficiencia-e-desempenho/" class="text-decoration-none text-dark custom-hover fw-bold">BYD Dolphin: Preço, Autonomia, Carregamento, Eficiência e Desempenho</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 08/09/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/byd-dolphin-vendeu-mais-nos-quatro-meses-de-2024-que-no-ano-passado-todo/" class="overflow-hidden">
-                        <img src="/static/uploads/BYD-Dolphin-vendas.webp" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/byd-dolphin-vendeu-mais-nos-quatro-meses-de-2024-que-no-ano-passado-todo/" class="text-decoration-none text-dark custom-hover fw-bold">BYD Dolphin vendeu mais nos quatro meses de 2024 que no ano passado todo</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 08/09/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/escute-sua-mae-e-compre-um-carro/" class="overflow-hidden">
-                        <img src="/static/uploads/Escute-sua-mae-e-compre-um-carro.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/escute-sua-mae-e-compre-um-carro/" class="text-decoration-none text-dark custom-hover fw-bold">Escute sua mãe e compre um carro.</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/08/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/fique-de-olho-no-golpe-para-nao-perder-a-moto-ou-carro/" class="overflow-hidden">
-                        <img src="/static/uploads/Fique-de-olho-no-G0LP3-para-nao-perder-a-moto.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/fique-de-olho-no-golpe-para-nao-perder-a-moto-ou-carro/" class="text-decoration-none text-dark custom-hover fw-bold">Fique de olho no Golpe para não perder a moto ou carro.</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/08/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/por-que-na-argentina-se-paga-120-a-mais-por-um-carro/" class="overflow-hidden">
-                        <img src="/static/uploads/Por-que-na-Argentina-se-paga-120-a-mais-por.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/por-que-na-argentina-se-paga-120-a-mais-por-um-carro/" class="text-decoration-none text-dark custom-hover fw-bold">Por que na Argentina se paga 120% a mais por um carro?</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/08/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/faca-isso-quando-for-comprar-a-moto-ou-carro/" class="overflow-hidden">
-                        <img src="/static/uploads/Faca-isso-quando-for-comprar-a-moto-ou-carro.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/faca-isso-quando-for-comprar-a-moto-ou-carro/" class="text-decoration-none text-dark custom-hover fw-bold">Faça isso quando for comprar a moto ou carro.</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/08/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/comprando-carrinhos-da-hot-wheels-na-loja-de-brinquedos-toys-r-us/" class="overflow-hidden">
-                        <img src="/static/uploads/Comprando-carrinhos-da-Hot-Wheels-na-loja-de-brinquedos-Toys.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/comprando-carrinhos-da-hot-wheels-na-loja-de-brinquedos-toys-r-us/" class="text-decoration-none text-dark custom-hover fw-bold">Comprando carrinhos da Hot Wheels na loja de brinquedos Toys R Us 🎁.</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/08/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 bg-white">
-                    
-                    <a href="/por-que-a-tesla-vai-dominar-o-mundo-parte-2-s01e03-por-que-a-tesla-vai-dominar-o-mundo-parte-2-s01e03/" class="overflow-hidden">
-                        <img src="/static/uploads/Por-que-a-Tesla-vai-dominar-o-mundo-PARTE-2.jpg" alt="None" title="None" class="card-img-top rounded-top img-zoom" style="height: 200px; object-fit: cover;" loading="lazy">
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">
-                            <a href="/por-que-a-tesla-vai-dominar-o-mundo-parte-2-s01e03-por-que-a-tesla-vai-dominar-o-mundo-parte-2-s01e03/" class="text-decoration-none text-dark custom-hover fw-bold">Por que a Tesla vai dominar o mundo? PARTE 2 (S01E03) - Por que a Tesla vai dominar o mundo? PARTE 2 (S01E03)</a>
-                        </h2>
-                        <p class="text-muted small mt-auto mb-0"><i class="bi bi-calendar3"></i> 29/08/2024</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </main>
+        function openMenu() {
+            offcanvas.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
 
-    <footer class="text-light py-5 mt-auto" style="background-color: #212529;">
-        <div class="container">
-            <div class="row gy-4 text-center text-md-start">
-                <div class="col-lg-5 pe-lg-5">
-                    <p class="text-uppercase fw-bold mb-3 d-flex align-items-center justify-content-center justify-content-md-start">
+        function closeMenu() {
+            offcanvas.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // --- SEARCH LOGIC ---
+        const searchToggle = document.getElementById('gs-search-toggle');
+        const searchOverlay = document.getElementById('gs-search-overlay');
+        const searchClose = document.getElementById('gs-search-close');
+        const searchInput = document.getElementById('gs-search-input');
+        const searchResults = document.getElementById('gs-search-results');
+        let postsData = [];
+
+        if (searchToggle && searchOverlay) {
+            searchToggle.addEventListener('click', function() {
+                searchOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                searchInput.focus();
+                
+                // Fetch posts.json only once
+                if (postsData.length === 0) {
+                    fetch('/posts.json')
+                        .then(response => response.json())
+                        .then(data => { postsData = data; })
+                        .catch(err => console.error('Erro ao carregar pesquisa', err));
+                }
+            });
+            
+            searchClose.addEventListener('click', function() {
+                searchOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                searchResults.innerHTML = '';
+                if (query.length < 2) return;
+                
+                const filtered = postsData.filter(post => post.title.toLowerCase().includes(query));
+                
+                if (filtered.length === 0) {
+                    searchResults.innerHTML = '<p style="color:#aaa; text-align:center; padding:1rem;">Nenhum resultado encontrado.</p>';
+                    return;
+                }
+                
+                filtered.forEach(post => {
+                    const link = document.createElement('a');
+                    link.href = '/' + post.slug + '/';
+                    link.style.display = 'flex';
+                    link.style.gap = '15px';
+                    link.style.alignItems = 'center';
+                    link.style.padding = '10px 0';
+                    link.style.borderBottom = '1px solid #333';
+                    link.style.color = '#fff';
+                    link.style.textDecoration = 'none';
+                    
+                    let imgHtml = post.image ? `<img src="${post.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;">` : `<div style="width:60px; height:60px; background:#444; border-radius:4px;"></div>`;
+                    
+                    link.innerHTML = imgHtml + `<div><div style="font-size:0.8rem; color:#aaa;">${post.date || ''}</div><div style="font-weight:700;">${post.title}</div></div>`;
+                    searchResults.appendChild(link);
+                });
+            });
+        }
+    });
+</script>
+
+<main class="container">
+    <header style="margin-bottom: 3rem; text-align: center;">
+        
+            <i class="bi bi-person-circle" style="font-size: 5rem; color: var(--text-muted);"></i>
+        
+        <h1 class="page-title" style="border: none; padding: 0;">Zequinha Meireles</h1>
+        
+    </header>
+
+    <div class="gs-grid">
+        
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/5-passos-essenciais-para-abrir-sua-oficina-em-fortaleza/">
+                    <div class="gs-card__img-wrapper">
                         
-                            <img src="/static/uploads/patrulha-mirim.JPG" alt="Logo" width="120" height="35" style="height: 35px; width: auto; object-fit: contain;" class="bg-white rounded p-1" loading="lazy">
-                        
-                    </p>
-                    <p class="text-light opacity-75 small lh-lg mb-0">
-                        
-                    </p>
-                </div>
-                <div class="col-lg-3">
-                    <p class="text-uppercase fw-bold mb-3 text-white-50" style="font-size: 0.9rem; letter-spacing: 1px;">Navegação</p>
-                    <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
-                        
-                            <li><a href="/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Início</a></li>
-                            
-                            <li><a href="/sobre/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Sobre</a></li>
-                            
-                            <li><a href="/termos-e-condicoes-de-uso/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Termos e Condições de Uso</a></li>
-                            
-                            <li><a href="/politicas-de-privacidade/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Políticas de Privacidade</a></li>
-                            
-                            <li><a href="/contato/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Contato</a></li>
-                            
-                        
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <p class="text-uppercase fw-bold mb-3 text-white-50" style="font-size: 0.9rem; letter-spacing: 1px;">Siga-nos</p>
-                    <div class="d-flex gap-2 justify-content-center justify-content-md-start flex-wrap">
-                        
-                        
-                        
+                            <img src="/static/uploads/5-passos-essenciais-para-abrir-sua-oficina-em-fortaleza.jpg" alt="5 passos essenciais para abrir sua oficina em Fortaleza" loading="lazy">
                         
                     </div>
-                </div>
-            </div>
-            <hr class="mt-5 mb-4 border-secondary opacity-25">
-
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="small mb-0 opacity-75">
-                        Copyright © 2026 Patrulha Mirim
-                    </p>
-                </div>
-
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="list-inline mb-0">
+                    <h3 class="gs-card__title">5 passos essenciais para abrir sua oficina em Fortaleza</h3>
+                    <div class="gs-card__meta">
+                        01/10/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-garantir-sua-placa-padrao-mercosul-com-facilidade-e-rapidez/">
+                    <div class="gs-card__img-wrapper">
                         
-                            
-                            
-
-                            
+                            <img src="/static/uploads/como-garantir-sua-placa-padrao-mercosul-com-facilidade-e-rapidez.jpg" alt="Como garantir sua placa padrão Mercosul com facilidade e rapidez" loading="lazy">
                         
-                            
-                            
-
-                            
+                    </div>
+                    <h3 class="gs-card__title">Como garantir sua placa padrão Mercosul com facilidade e rapidez</h3>
+                    <div class="gs-card__meta">
+                        30/09/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/itens-essenciais-para-elevar-o-padrao-do-seu-cafe-truck/">
+                    <div class="gs-card__img-wrapper">
                         
-                            
-                            
-
-                            
+                            <img src="/static/uploads/itens-essenciais-para-elevar-o-padrao-do-seu-cafe-truck.jpg" alt="Itens essenciais para elevar o padrão do seu café truck" loading="lazy">
                         
-                            
-                            
-
-                            
+                    </div>
+                    <h3 class="gs-card__title">Itens essenciais para elevar o padrão do seu café truck</h3>
+                    <div class="gs-card__meta">
+                        26/09/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-enviar-seu-carro-com-seguranca-para-outro-estado/">
+                    <div class="gs-card__img-wrapper">
                         
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+                            <img src="/static/uploads/como-enviar-seu-carro-com-seguranca-para-outro-estado.jpg" alt="Como enviar seu carro com segurança para outro estado" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como enviar seu carro com segurança para outro estado</h3>
+                    <div class="gs-card__meta">
+                        24/09/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/por-que-usar-dispositivos-de-impressao-nao-fiscais-em-oficinas-e-concessionarias/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/por-que-usar-dispositivos-de-impressao-nao-fiscais-em-oficinas-e-concessionarias.jpg" alt="Por que usar dispositivos de impressão não fiscais em oficinas e concessionárias?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Por que usar dispositivos de impressão não fiscais em oficinas e concessionárias?</h3>
+                    <div class="gs-card__meta">
+                        15/09/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/o-que-fazer-se-o-seu-emplacamento-sofrer-algum-dano/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/o-que-fazer-se-o-seu-emplacamento-sofrer-algum-dano.jpg" alt="O que fazer se o seu emplacamento sofrer algum dano?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">O que fazer se o seu emplacamento sofrer algum dano?</h3>
+                    <div class="gs-card__meta">
+                        14/09/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/5-dicas-essenciais-para-garantir-a-cobertura-ideal-no-seu-veiculo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/5-dicas-essenciais-para-garantir-a-cobertura-ideal-no-seu-veiculo.jpg" alt="5 dicas essenciais para garantir a cobertura ideal no seu veículo" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">5 dicas essenciais para garantir a cobertura ideal no seu veículo</h3>
+                    <div class="gs-card__meta">
+                        30/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-oficinas-autorizadas-para-reparos-de-seguros-automotivos/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-oficinas-autorizadas-para-reparos-de-seguros-automotivos.jpg" alt="Como escolher oficinas autorizadas para reparos de seguros automotivos" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher oficinas autorizadas para reparos de seguros automotivos</h3>
+                    <div class="gs-card__meta">
+                        28/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/5-dicas-para-aprovacao-na-avaliacao-de-veiculos-em-campo-grande/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/5-dicas-para-aprovacao-na-avaliacao-de-veiculos-em-campo-grande.jpg" alt="5 dicas para aprovação na avaliação de veículos em Campo Grande" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">5 dicas para aprovação na avaliação de veículos em Campo Grande</h3>
+                    <div class="gs-card__meta">
+                        24/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/quais-os-principais-desafios-do-trafego-na-ilha-de-santa-catarina/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/quais-os-principais-desafios-do-trafego-na-ilha-de-santa-catarina.jpg" alt="Quais os principais desafios do tráfego na Ilha de Santa Catarina?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Quais os principais desafios do tráfego na Ilha de Santa Catarina?</h3>
+                    <div class="gs-card__meta">
+                        23/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro.jpg" alt="Quais são os 5 benefícios do cuidado profissional para seu carro?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Quais são os 5 benefícios do cuidado profissional para seu carro?</h3>
+                    <div class="gs-card__meta">
+                        21/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro-2/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro.jpg" alt="Quais são os 5 benefícios do cuidado profissional para seu carro?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Quais são os 5 benefícios do cuidado profissional para seu carro?</h3>
+                    <div class="gs-card__meta">
+                        21/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro-3/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/quais-sao-os-5-beneficios-do-cuidado-profissional-para-seu-carro.jpg" alt="Quais são os 5 benefícios do cuidado profissional para seu carro?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Quais são os 5 benefícios do cuidado profissional para seu carro?</h3>
+                    <div class="gs-card__meta">
+                        21/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/dicas-essenciais-para-encontrar-revendedoras-confiaveis-de-automoveis/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/dicas-essenciais-para-encontrar-revendedoras-confiaveis-de-automoveis.jpg" alt="Dicas essenciais para encontrar revendedoras confiáveis de automóveis" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Dicas essenciais para encontrar revendedoras confiáveis de automóveis</h3>
+                    <div class="gs-card__meta">
+                        17/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/veja-qual-melhor-furgao-para-carga-no-mercado/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/veja-qual-melhor-furgao-para-carga-no-mercado.jpg" alt="Veja qual melhor furgão para carga no mercado " loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Veja qual melhor furgão para carga no mercado </h3>
+                    <div class="gs-card__meta">
+                        07/08/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-acessorios-de-ar-para-veiculos-com-alta-eficiencia/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-acessorios-de-ar-para-veiculos-com-alta-eficiencia.jpg" alt="Como escolher acessórios de ar para veículos com alta eficiência" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher acessórios de ar para veículos com alta eficiência</h3>
+                    <div class="gs-card__meta">
+                        24/07/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-o-melhor-martelinho-de-ouro-em-porto-alegre/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-o-melhor-martelinho-de-ouro-em-porto-alegre.jpg" alt="Como escolher o melhor martelinho de ouro em Porto Alegre" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher o melhor martelinho de ouro em Porto Alegre</h3>
+                    <div class="gs-card__meta">
+                        10/07/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/onde-encontrar-pneus-ideais-para-onix-em-sao-paulo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/onde-encontrar-pneus-ideais-para-onix-em-sao-paulo.jpg" alt="Onde encontrar pneus ideais para Onix em São Paulo?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Onde encontrar pneus ideais para Onix em São Paulo?</h3>
+                    <div class="gs-card__meta">
+                        01/07/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/estrategias-para-cuidar-do-seu-pet-em-areas-de-garagem-automotiva/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/estrategias-para-cuidar-do-seu-pet-em-areas-de-garagem-automotiva.jpg" alt="Estratégias para cuidar do seu pet em áreas de garagem automotiva" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Estratégias para cuidar do seu pet em áreas de garagem automotiva</h3>
+                    <div class="gs-card__meta">
+                        26/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-o-melhor-sistema-de-gestao-para-autopecas/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-o-melhor-sistema-de-gestao-para-autopecas.jpg" alt="Como escolher o melhor sistema de gestão para autopeças" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher o melhor sistema de gestão para autopeças</h3>
+                    <div class="gs-card__meta">
+                        21/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/top-4-viagens-de-trem-que-todo-amante-de-carros-deve-conhecer/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/top-4-viagens-de-trem-que-todo-amante-de-carros-deve-conhecer.jpg" alt="Top 4 viagens de trem que todo amante de carros deve conhecer" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Top 4 viagens de trem que todo amante de carros deve conhecer</h3>
+                    <div class="gs-card__meta">
+                        09/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-o-frete-aereo-revoluciona-a-logistica-no-setor-automotivo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-o-frete-aereo-revoluciona-a-logistica-no-setor-automotivo.jpg" alt="Como o frete aéreo revoluciona a logística no setor automotivo" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como o frete aéreo revoluciona a logística no setor automotivo</h3>
+                    <div class="gs-card__meta">
+                        09/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/tecnicas-essenciais-para-cuidar-dos-bancos-do-seu-automovel/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <div style="width: 100%; height: 100%; background: #333;"></div>
+                        
+                    </div>
+                    <h3 class="gs-card__title">Técnicas essenciais para cuidar dos bancos do seu automóvel</h3>
+                    <div class="gs-card__meta">
+                        04/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/5-dicas-essenciais-para-pneus-em-veiculos-escolares-e-comerciais/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/5-dicas-essenciais-para-pneus-em-veiculos-escolares-e-comerciais.jpg" alt="5 dicas essenciais para pneus em veículos escolares e comerciais" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">5 dicas essenciais para pneus em veículos escolares e comerciais</h3>
+                    <div class="gs-card__meta">
+                        03/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-servicos-de-rastreamento-automotivo-confiaveis/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-servicos-de-rastreamento-automotivo-confiaveis.jpg" alt="Como escolher serviços de rastreamento automotivo confiáveis?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher serviços de rastreamento automotivo confiáveis?</h3>
+                    <div class="gs-card__meta">
+                        02/06/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-o-melhor-carro-de-luxo-para-viagens-na-capital-mineira/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-o-melhor-carro-de-luxo-para-viagens-na-capital-mineira.jpg" alt="Como escolher o melhor carro de luxo para viagens na capital mineira?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher o melhor carro de luxo para viagens na capital mineira?</h3>
+                    <div class="gs-card__meta">
+                        29/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-replicas-exclusivas-de-onibus-para-colecionar/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-replicas-exclusivas-de-onibus-para-colecionar.jpg" alt="Como escolher réplicas exclusivas de ônibus para colecionar" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher réplicas exclusivas de ônibus para colecionar</h3>
+                    <div class="gs-card__meta">
+                        25/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/ea-fc-26-vs-ea-fc-25-o-que-mudou-de-verdade/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/ea-fc-26-vs-ea-fc-25-o-que-mudou-de-verdade.jpg" alt="EA FC 26 vs EA FC 25: O Que Mudou de Verdade?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">EA FC 26 vs EA FC 25: O Que Mudou de Verdade?</h3>
+                    <div class="gs-card__meta">
+                        19/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-potencializar-a-limpeza-do-seu-veiculo-com-alta-pressao/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-potencializar-a-limpeza-do-seu-veiculo-com-alta-pressao.jpg" alt="Como potencializar a limpeza do seu veículo com alta pressão" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como potencializar a limpeza do seu veículo com alta pressão</h3>
+                    <div class="gs-card__meta">
+                        19/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/guia-pratico-para-reparos-metalicos-automotivos-na-regiao-de-bauru/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/guia-pratico-para-reparos-metalicos-automotivos-na-regiao-de-bauru.jpg" alt="Guia prático para reparos metálicos automotivos na região de Bauru" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Guia prático para reparos metálicos automotivos na região de Bauru</h3>
+                    <div class="gs-card__meta">
+                        08/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-garantir-a-seguranca-do-seu-carro-com-monitoramento-online/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-garantir-a-seguranca-do-seu-carro-com-monitoramento-online.jpg" alt="Como garantir a segurança do seu carro com monitoramento online" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como garantir a segurança do seu carro com monitoramento online</h3>
+                    <div class="gs-card__meta">
+                        05/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/melhores-trajetos-de-carro-para-descobrir-os-encantos-de-salvador/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/melhores-trajetos-de-carro-para-descobrir-os-encantos-de-salvador.jpg" alt="Melhores trajetos de carro para descobrir os encantos de Salvador" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Melhores trajetos de carro para descobrir os encantos de Salvador</h3>
+                    <div class="gs-card__meta">
+                        01/05/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-resolver-a-burocracia-do-seu-carro-com-despachante-no-rio-de-janeiro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-resolver-a-burocracia-do-seu-carro-com-despachante-no-rio-de-janeiro.jpg" alt="Como Resolver a Burocracia do seu Carro com Despachante no Rio de Janeiro" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como Resolver a Burocracia do seu Carro com Despachante no Rio de Janeiro</h3>
+                    <div class="gs-card__meta">
+                        27/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/declaracao-de-saida-definitiva-do-pais-retroativa-prazos-multas-e-passo-a-passo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/declaracao-de-saida-definitiva-do-pais-retroativa-prazos-multas-e-passo-a-passo.jpg" alt="Declaração de saída definitiva do país retroativa: Prazos, multas e passo a passo" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Declaração de saída definitiva do país retroativa: Prazos, multas e passo a passo</h3>
+                    <div class="gs-card__meta">
+                        21/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-cuidar-dos-pneus-para-garantir-viagens-seguras-e-estaveis/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-cuidar-dos-pneus-para-garantir-viagens-seguras-e-estaveis.jpg" alt="Como cuidar dos pneus para garantir viagens seguras e estáveis" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como cuidar dos pneus para garantir viagens seguras e estáveis</h3>
+                    <div class="gs-card__meta">
+                        15/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/5-vantagens-de-usar-servicos-de-motoboys-terceirizados-no-rj/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/5-vantagens-de-usar-servicos-de-motoboys-terceirizados-no-rj.jpg" alt="5 vantagens de usar serviços de motoboys terceirizados no RJ" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">5 vantagens de usar serviços de motoboys terceirizados no RJ</h3>
+                    <div class="gs-card__meta">
+                        13/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/o-impacto-do-passado-antigo-nas-tecnologias-automotivas-atuais/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/o-impacto-do-passado-antigo-nas-tecnologias-automotivas-atuais.jpg" alt="O impacto do passado antigo nas tecnologias automotivas atuais" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">O impacto do passado antigo nas tecnologias automotivas atuais</h3>
+                    <div class="gs-card__meta">
+                        11/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/por-que-optar-por-pecas-automotivas-remanufaturadas-vale-a-pena/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/por-que-optar-por-pecas-automotivas-remanufaturadas-vale-a-pena.jpg" alt="Por que optar por peças automotivas remanufaturadas vale a pena?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Por que optar por peças automotivas remanufaturadas vale a pena?</h3>
+                    <div class="gs-card__meta">
+                        09/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/top-opcoes-de-equipamentos-de-cabeca-para-veiculos-leves-eletricos/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/top-opcoes-de-equipamentos-de-cabeca-para-veiculos-leves-eletricos.jpg" alt="Top opções de equipamentos de cabeça para veículos leves elétricos" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Top opções de equipamentos de cabeça para veículos leves elétricos</h3>
+                    <div class="gs-card__meta">
+                        09/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-o-melhor-servico-de-guincho-no-rio-de-janeiro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-o-melhor-servico-de-guincho-no-rio-de-janeiro.jpg" alt="Como escolher o melhor serviço de guincho no Rio de Janeiro" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher o melhor serviço de guincho no Rio de Janeiro</h3>
+                    <div class="gs-card__meta">
+                        07/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo.jpg" alt="Qual o segredo para um cheirinho agradável dentro do seu veículo?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Qual o segredo para um cheirinho agradável dentro do seu veículo?</h3>
+                    <div class="gs-card__meta">
+                        03/04/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/ipva-o-que-e-como-funciona-e-quem-precisa-pagar/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/ipva-o-que-e-como-funciona-e-quem-precisa-pagar.jpg" alt="IPVA: O Que é, Como Funciona e Quem Precisa Pagar" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">IPVA: O Que é, Como Funciona e Quem Precisa Pagar</h3>
+                    <div class="gs-card__meta">
+                        30/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/principais-ferramentas-para-avaliar-precos-de-carros-usados/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/principais-ferramentas-para-avaliar-precos-de-carros-usados.jpg" alt="Principais ferramentas para avaliar preços de carros usados" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Principais ferramentas para avaliar preços de carros usados</h3>
+                    <div class="gs-card__meta">
+                        25/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp.jpg" alt="Como escolher serviços exclusivos de resgate privado em SP" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como escolher serviços exclusivos de resgate privado em SP</h3>
+                    <div class="gs-card__meta">
+                        23/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/o-que-levar-no-carro-para-acampar-com-as-criancas-lista-completa-e-dicas-praticas/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/acampar.jpg" alt="O Que Levar no Carro para Acampar com as Crianças: Lista Completa e Dicas Práticas" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">O Que Levar no Carro para Acampar com as Crianças: Lista Completa e Dicas Práticas</h3>
+                    <div class="gs-card__meta">
+                        08/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-promover-sua-oficina-mecanica-na-internet/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-promover-sua-oficina-mecanica-na-internet.jpg" alt="Como promover sua oficina mecânica na internet" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como promover sua oficina mecânica na internet</h3>
+                    <div class="gs-card__meta">
+                        05/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca.jpg" alt="Dicas para contratar locação de ônibus e vans em Jundiaí com segurança" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Dicas para contratar locação de ônibus e vans em Jundiaí com segurança</h3>
+                    <div class="gs-card__meta">
+                        03/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney.jpg" alt="Roteiro automotivo: hotéis com temática de cinema perto da Disney" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Roteiro automotivo: hotéis com temática de cinema perto da Disney</h3>
+                    <div class="gs-card__meta">
+                        02/03/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/como-escolher-o-melhor-despachante-em-goiania/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/como-escolher-o-melhor-despachante-em-goiania.jpg" alt="Como Escolher o Melhor Despachante em Goiânia" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Como Escolher o Melhor Despachante em Goiânia</h3>
+                    <div class="gs-card__meta">
+                        27/02/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/dicas-de-treinamentos-para-atuar-no-mercado-automotivo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/dicas-de-treinamentos-para-atuar-no-mercado-automotivo.jpg" alt="Dicas de Treinamentos Para Atuar no Mercado Automotivo" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Dicas de Treinamentos Para Atuar no Mercado Automotivo</h3>
+                    <div class="gs-card__meta">
+                        19/02/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/top-4-beneficios-do-transporte-privado-de-alto-padrao-em-brasilia/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/top-4-beneficios-do-transporte-privado-de-alto-padrao-em-brasilia.jpg" alt="Top 4 benefícios do transporte privado de alto padrão em Brasília" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Top 4 benefícios do transporte privado de alto padrão em Brasília</h3>
+                    <div class="gs-card__meta">
+                        16/02/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/d/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <div style="width: 100%; height: 100%; background: #333;"></div>
+                        
+                    </div>
+                    <h3 class="gs-card__title">d</h3>
+                    <div class="gs-card__meta">
+                        30/01/2026
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/cafeteira-oster-2day-inox-design-sofisticado-e-cafe-de-qualidade/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/cafeteira.jpg" alt="Cafeteira Oster 2DAY Inox Design Sofisticado e Café de Qualidade" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Cafeteira Oster 2DAY Inox Design Sofisticado e Café de Qualidade</h3>
+                    <div class="gs-card__meta">
+                        24/09/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/comparativo-de-veiculos-populares-qual-e-o-melhor-custo-beneficio-em-2025/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <div style="width: 100%; height: 100%; background: #333;"></div>
+                        
+                    </div>
+                    <h3 class="gs-card__title">Comparativo de Veículos Populares: Qual é o Melhor Custo-Benefício em 2025?</h3>
+                    <div class="gs-card__meta">
+                        18/09/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/quando-trocar-a-suspensao-do-carro-sinais-de-alerta/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/pecas.webp" alt="Quando Trocar a Suspensão do Carro? Sinais de Alerta" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Quando Trocar a Suspensão do Carro? Sinais de Alerta</h3>
+                    <div class="gs-card__meta">
+                        01/09/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/empresa-de-onibus-em-itupeva-transporte-seguro-e-confiavel-para-a-regiao/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/homem-onibus.jpg" alt="Empresa de Ônibus em Itupeva: Transporte Seguro e Confiável para a Região" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Empresa de Ônibus em Itupeva: Transporte Seguro e Confiável para a Região</h3>
+                    <div class="gs-card__meta">
+                        18/08/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/testes-de-colisao-e-seguranca-das-cadeirinhas-para-auto-entenda-a-importancia/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/cadeirinha-bebe.jpg" alt="Testes de Colisão e Segurança das Cadeirinhas para Auto: Entenda a Importância" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Testes de Colisão e Segurança das Cadeirinhas para Auto: Entenda a Importância</h3>
+                    <div class="gs-card__meta">
+                        22/07/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/guia-da-troca-de-oleo-de-carros-e-motos-tudo-o-que-voce-precisa-saber/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/trocando-oleo-motor.jpg" alt="Guia da Troca de Óleo de Carros e Motos: Tudo o que Você Precisa Saber" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Guia da Troca de Óleo de Carros e Motos: Tudo o que Você Precisa Saber</h3>
+                    <div class="gs-card__meta">
+                        14/07/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/guia-completo-sobre-retentor-protegendo-seu-motor-contra-vazamentos/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/retentor.jpg" alt="Guia Completo Sobre Retentor: Protegendo Seu Motor Contra Vazamentos" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Guia Completo Sobre Retentor: Protegendo Seu Motor Contra Vazamentos</h3>
+                    <div class="gs-card__meta">
+                        30/06/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/presentes-para-geeks-ideias-criativas-para-amantes-de-carros-e-tecnologia/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/brinquedos.jpg" alt="Presentes para Geeks: Ideias Criativas para Amantes de Carros e Tecnologia" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Presentes para Geeks: Ideias Criativas para Amantes de Carros e Tecnologia</h3>
+                    <div class="gs-card__meta">
+                        20/06/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/descubra-onde-fazer-envelopamento-automotivo-em-balneario-camboriu/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/envelopar.jpg" alt="Descubra Onde Fazer Envelopamento Automotivo em Balneário Camboriú" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Descubra Onde Fazer Envelopamento Automotivo em Balneário Camboriú</h3>
+                    <div class="gs-card__meta">
+                        18/06/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/presenteando-com-emocao-sobre-quatro-rodas/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <div style="width: 100%; height: 100%; background: #333;"></div>
+                        
+                    </div>
+                    <h3 class="gs-card__title">Presenteando com Emoção Sobre Quatro Rodas</h3>
+                    <div class="gs-card__meta">
+                        12/06/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/aspirador-de-po-potente-praticidade-e-tecnologia-para-manter-o-interior-do-carro-limpo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <div style="width: 100%; height: 100%; background: #333;"></div>
+                        
+                    </div>
+                    <h3 class="gs-card__title">Aspirador de Pó Potente: Praticidade e Tecnologia para Manter o Interior do Carro Limpo</h3>
+                    <div class="gs-card__meta">
+                        11/06/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/a-historia-das-miniaturas-de-carros-e-onibus-paixao-em-escala-reduzida/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <div style="width: 100%; height: 100%; background: #333;"></div>
+                        
+                    </div>
+                    <h3 class="gs-card__title">A História das Miniaturas de Carros e Ônibus: Paixão em Escala Reduzida</h3>
+                    <div class="gs-card__meta">
+                        05/06/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/comprar-passagem-aerea-barata-o-guia-essencial-para-sua-proxima-viagem/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/passagens.jpg" alt="Comprar Passagem Aérea Barata: O Guia Essencial para Sua Próxima Viagem" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Comprar Passagem Aérea Barata: O Guia Essencial para Sua Próxima Viagem</h3>
+                    <div class="gs-card__meta">
+                        28/05/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/tudo-o-que-voce-precisa-saber-sobre-o-ipva-guia-completo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/ipva-2.jpg" alt="Tudo o Que Você Precisa Saber Sobre o IPVA: Guia Completo" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Tudo o Que Você Precisa Saber Sobre o IPVA: Guia Completo</h3>
+                    <div class="gs-card__meta">
+                        25/05/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/guia-de-goiania-servicos-automotivos-completos-para-seu-carro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/carro.jpg" alt="Guia de Goiânia: Serviços Automotivos Completos para Seu Carro" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Guia de Goiânia: Serviços Automotivos Completos para Seu Carro</h3>
+                    <div class="gs-card__meta">
+                        07/05/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/cuidados-dentro-do-onibus-durante-a-excursao-com-criancas/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/crianca-onibus-2.jpg" alt="Cuidados Dentro do Ônibus Durante a Excursão com Crianças" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Cuidados Dentro do Ônibus Durante a Excursão com Crianças</h3>
+                    <div class="gs-card__meta">
+                        21/02/2025
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/dolphin-mini-e-melhor-que-o-dolphin/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/byd-dolphin-vs-dolphin-mini.webp" alt="Dolphin Mini é Melhor que o Dolphin?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Dolphin Mini é Melhor que o Dolphin?</h3>
+                    <div class="gs-card__meta">
+                        08/09/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/byd-dolphin-preco-autonomia-carregamento-eficiencia-e-desempenho/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/BYD-Dolphin-tudo.webp" alt="BYD Dolphin: Preço, Autonomia, Carregamento, Eficiência e Desempenho" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">BYD Dolphin: Preço, Autonomia, Carregamento, Eficiência e Desempenho</h3>
+                    <div class="gs-card__meta">
+                        08/09/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/byd-dolphin-vendeu-mais-nos-quatro-meses-de-2024-que-no-ano-passado-todo/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/BYD-Dolphin-vendas.webp" alt="BYD Dolphin vendeu mais nos quatro meses de 2024 que no ano passado todo" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">BYD Dolphin vendeu mais nos quatro meses de 2024 que no ano passado todo</h3>
+                    <div class="gs-card__meta">
+                        08/09/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/escute-sua-mae-e-compre-um-carro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/Escute-sua-mae-e-compre-um-carro.jpg" alt="Escute sua mãe e compre um carro." loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Escute sua mãe e compre um carro.</h3>
+                    <div class="gs-card__meta">
+                        29/08/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/fique-de-olho-no-golpe-para-nao-perder-a-moto-ou-carro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/Fique-de-olho-no-G0LP3-para-nao-perder-a-moto.jpg" alt="Fique de olho no Golpe para não perder a moto ou carro." loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Fique de olho no Golpe para não perder a moto ou carro.</h3>
+                    <div class="gs-card__meta">
+                        29/08/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/por-que-na-argentina-se-paga-120-a-mais-por-um-carro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/Por-que-na-Argentina-se-paga-120-a-mais-por.jpg" alt="Por que na Argentina se paga 120% a mais por um carro?" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Por que na Argentina se paga 120% a mais por um carro?</h3>
+                    <div class="gs-card__meta">
+                        29/08/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/faca-isso-quando-for-comprar-a-moto-ou-carro/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/Faca-isso-quando-for-comprar-a-moto-ou-carro.jpg" alt="Faça isso quando for comprar a moto ou carro." loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Faça isso quando for comprar a moto ou carro.</h3>
+                    <div class="gs-card__meta">
+                        29/08/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/comprando-carrinhos-da-hot-wheels-na-loja-de-brinquedos-toys-r-us/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/Comprando-carrinhos-da-Hot-Wheels-na-loja-de-brinquedos-Toys.jpg" alt="Comprando carrinhos da Hot Wheels na loja de brinquedos Toys R Us 🎁." loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Comprando carrinhos da Hot Wheels na loja de brinquedos Toys R Us 🎁.</h3>
+                    <div class="gs-card__meta">
+                        29/08/2024
+                    </div>
+                </a>
+            </article>
+            
+            <article class="gs-card" style="grid-column: span 12; @media(min-width: 768px){ grid-column: span 4; }">
+                <a href="/por-que-a-tesla-vai-dominar-o-mundo-parte-2-s01e03-por-que-a-tesla-vai-dominar-o-mundo-parte-2-s01e03/">
+                    <div class="gs-card__img-wrapper">
+                        
+                            <img src="/static/uploads/Por-que-a-Tesla-vai-dominar-o-mundo-PARTE-2.jpg" alt="Por que a Tesla vai dominar o mundo? PARTE 2 (S01E03) - Por que a Tesla vai dominar o mundo? PARTE 2 (S01E03)" loading="lazy">
+                        
+                    </div>
+                    <h3 class="gs-card__title">Por que a Tesla vai dominar o mundo? PARTE 2 (S01E03) - Por que a Tesla vai dominar o mundo? PARTE 2 (S01E03)</h3>
+                    <div class="gs-card__meta">
+                        29/08/2024
+                    </div>
+                </a>
+            </article>
+            
+        
+    </div>
 
     
+</main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            let postsData = null;
-            let carregandoBanco = false;
+<footer class="gs-footer">
+    <div class="container">
+        <div class="gs-footer__social">
+            
+            
+            
+            
+        </div>
+        
+        <ul class="gs-footer__menu">
+            
+        </ul>
+        
+        
+        <div class="gs-footer__copyright">
+            Copyright © 2026 Patrulha Mirim
+        </div>
+    </div>
+</footer>
 
-            if(searchInput && searchResults) {
-
-                // SCRIPT DE PESQUISA OTIMIZADO (Lazy Fetch)
-                searchInput.addEventListener('focus', async () => {
-                    if (!postsData && !carregandoBanco) {
-                        carregandoBanco = true;
-                        try {
-                            const response = await fetch('/posts.json');
-                            if (response.ok) {
-                                postsData = await response.json();
-                            }
-                        } catch (error) {
-                            console.error("Erro ao carregar o banco de pesquisa.");
-                        }
-                    }
-                });
-
-                searchInput.addEventListener('input', (e) => {
-                    if (!postsData) return; // Se ainda não baixou, não faz nada
-
-                    const query = e.target.value.toLowerCase().trim();
-                    searchResults.innerHTML = '';
-
-                    if (query.length < 2) {
-                        searchResults.classList.add('d-none');
-                        return;
-                    }
-
-                    const filteredPosts = postsData.filter(post => post.title.toLowerCase().includes(query));
-
-                    if (filteredPosts.length > 0) {
-                        filteredPosts.forEach(post => {
-                            const link = document.createElement('a');
-                            link.href = `/${post.slug}/`;
-                            link.className = 'list-group-item list-group-item-action d-flex align-items-center border-0 border-bottom';
-                            const imgHtml = post.image ? `<img src="${post.image}" class="rounded me-3 object-fit-cover" style="width: 45px; height: 45px;">` : `<div class="bg-secondary rounded me-3 opacity-25" style="width: 45px; height: 45px;"></div>`;
-                            link.innerHTML = `${imgHtml}<div class="overflow-hidden"><h6 class="mb-0 text-truncate text-dark fw-bold" style="font-size: 0.9rem;">${post.title}</h6><small class="text-muted" style="font-size: 0.75rem;">${post.date}</small></div>`;
-                            searchResults.appendChild(link);
-                        });
-                        searchResults.classList.remove('d-none');
-                    } else {
-                        searchResults.innerHTML = '<div class="list-group-item text-muted text-center py-3 border-0 small">Nenhum artigo encontrado.</div>';
-                        searchResults.classList.remove('d-none');
-                    }
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-                        searchResults.classList.add('d-none');
-                    }
-                });
+<script>
+    // Carrossel nativo simplificado (substituto das chamadas de script originais caso tenha blocos CMS)
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(e) {
+            const btnPrev = e.target.closest('.btn-carousel-prev');
+            if (btnPrev) {
+                const wrapper = btnPrev.closest('div[id^="carrossel-"]');
+                const track = wrapper.querySelector('.dsc-track');
+                const item = track.querySelector('.dsc-item');
+                if (track && item) {
+                    const scrollAmount = item.offsetWidth + 20;
+                    if (track.scrollLeft <= 5) { track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' }); } 
+                    else { track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }); }
+                }
+                return;
+            }
+            const btnNext = e.target.closest('.btn-carousel-next');
+            if (btnNext) {
+                const wrapper = btnNext.closest('div[id^="carrossel-"]');
+                const track = wrapper.querySelector('.dsc-track');
+                const item = track.querySelector('.dsc-item');
+                if (track && item) {
+                    const scrollAmount = item.offsetWidth + 20;
+                    if (track.scrollLeft + track.offsetWidth >= track.scrollWidth - 5) { track.scrollTo({ left: 0, behavior: 'smooth' }); } 
+                    else { track.scrollBy({ left: scrollAmount, behavior: 'smooth' }); }
+                }
+                return;
             }
         });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-
-    
+    });
+</script>
 </body>
 </html>

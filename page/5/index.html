@@ -4,503 +4,459 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrulha Mirim</title>
-
     <meta name="description" content="">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Patrulha Mirim">
-    <meta property="og:description" content="">
-    <meta property="og:site_name" content="Patrulha Mirim">
-    <link rel="canonical" href="https://www.patrulhamirim.com.br/" />
-
     
-    <meta property="og:image" content="https://www.patrulhamirim.com.br/static/uploads/patrulha-mirim.JPG">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://www.patrulhamirim.com.br/static/uploads/patrulha-mirim.JPG">
-    
-
     
     
     <link rel="icon" href="/static/uploads/icon.JPG" type="image/x-icon">
     <link rel="apple-touch-icon" href="/static/uploads/icon.JPG">
     
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-
+    <link rel="stylesheet" href="/themes/gshow_pop_v2/assets/css/style.css?v=2.0">
+    <!-- Bootstrap Icons (Usado internamente pelo CMS e para redes sociais) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Algumas lógicas do CMS dependem de classes Bootstrap puras (RaioX). Injetamos a versão ultra-leve do bootstrap apenas para os blocos do CMS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
-
+    
+    <!-- Sistema de Paletas de Cores -->
+    
+    <style>
+        :root {
+            --accent-color: #c4170c !important;
+            --accent-hover: #9c1209 !important;
+            --accent-dark: #750d07 !important;
+        }
+    </style>
     
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Patrulha Mirim",
-      "url": "https://www.patrulhamirim.com.br/",
-      "description": "",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.patrulhamirim.com.br/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <style>
-        body { background-color: #f6f6f6; color: #333333; }
-        .custom-hover:hover { opacity: 1 !important; text-decoration: underline !important; }
-        #searchResults::-webkit-scrollbar { width: 6px; }
-        #searchResults::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 4px; }
-
-        /* Estilos do Novo Layout Mosaico */
-        .bg-gradient-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
-        }
-        .img-zoom { transition: transform 0.4s ease; }
-        .hero-card:hover .img-zoom { transform: scale(1.05); }
-        .badge-editorial { font-size: 0.75rem; background-color: white; color: #2B5C92; border: 1px solid #2B5C92; border-radius: 2px; }
-        .text-editorial { color: #2B5C92; }
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    </style>
+    
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
+<header class="gs-header">
+    <div class="gs-header__container">
+        <!-- Lado Esquerdo -->
+        <div class="gs-header__left">
+            <button class="gs-header__menu-btn" id="gs-menu-toggle" aria-label="Abrir Menu">
+                <i class="bi bi-list"></i>
+                <span class="gs-header__menu-text">MENU</span>
+            </button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background-color: #2b5c92;">
-        <div class="container py-1 py-lg-2">
-
-            <a class="navbar-brand fw-bold d-flex align-items-center me-lg-5" href="/">
+            <a href="/" class="gs-header__logo">
                 
-                    <img src="/static/uploads/patrulha-mirim.JPG" alt="Patrulha Mirim" width="150" height="40" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="/static/uploads/patrulha-mirim.JPG" alt="Patrulha Mirim">
                 
             </a>
+        </div>
 
-            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar menu de navegação">
-                <i class="bi bi-list text-white" style="font-size: 1.8rem;"></i>
+        <!-- Centro: Nome do Site com fonte fina -->
+        <a href="/" class="gs-header__center">
+            Patrulha Mirim
+        </a>
+
+        <!-- Lado Direito: Buscar -->
+        <div class="gs-header__right">
+            <button class="gs-header__right-item" id="gs-search-toggle" aria-label="Pesquisar" style="background:none; border:none; color:#fff;">
+                <i class="bi bi-search"></i>
+                <span style="text-transform: uppercase;">Buscar</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto gap-1 gap-lg-3">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/" style="font-size: 0.95rem;">Início</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/categoria/carros/" style="font-size: 0.95rem;">Carros</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/categoria/guias/" style="font-size: 0.95rem;">Guias</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="/categoria/testes/" style="font-size: 0.95rem;">Testes</a>
-                        </li>
-                        
-                    
-                </ul>
-                <form class="d-flex position-relative mt-3 mt-lg-0" onsubmit="event.preventDefault();" style="width: 100%; max-width: 320px;">
-                    <div class="input-group">
-                        <input class="form-control border-0 shadow-none py-2 ps-3" type="search" id="searchInput" placeholder="Pesquisar por..." autocomplete="off" style="font-size: 0.95rem; border-radius: 4px 0 0 4px;">
-                        <span class="input-group-text bg-white border-0 text-muted pe-3" style="border-radius: 0 4px 4px 0;">
-                            <i class="bi bi-search"></i>
-                        </span>
-                    </div>
-                    <div id="searchResults" class="list-group position-absolute w-100 shadow-lg rounded-3 d-none" style="top: 110%; z-index: 1000; max-height: 350px; overflow-y: auto;"></div>
-                </form>
-            </div>
         </div>
-    </nav>
+    </div>
+</header>
 
-    <main class="container mt-4 mb-5 flex-grow-1">
+<!-- Overlay de Busca (Search Modal) -->
+<div class="gs-search-overlay" id="gs-search-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; padding:2rem;">
+    <button id="gs-search-close" style="position:absolute; top:20px; right:30px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer;"><i class="bi bi-x-lg"></i></button>
+    <div style="max-width:600px; margin: 4rem auto 0; text-align:center;">
+        <input type="text" id="gs-search-input" placeholder="O que você está procurando?" style="width:100%; padding:1rem; font-size:1.5rem; border:none; border-bottom:2px solid var(--accent-color); background:transparent; color:#fff; outline:none; font-family:var(--font-ui);">
+        <div id="gs-search-results" style="margin-top:2rem; text-align:left; max-height:60vh; overflow-y:auto; font-family:var(--font-ui);"></div>
+    </div>
+</div>
 
-        
-
-        
-            
-        
-
-        
-
-        
-            <h2 class="fw-bold mb-4 border-bottom pb-2 text-dark mt-5 pt-4">Novos Artigos</h2>
-            <div class="row g-4 mb-4">
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo.jpg" alt="None" title="Qual o segredo para um cheirinho agradável dentro do seu veículo?" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo/" class="text-decoration-none text-dark custom-hover">Qual o segredo para um cheirinho agradável dentro do seu veículo?</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 03/04/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/ipva-o-que-e-como-funciona-e-quem-precisa-pagar/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/ipva-o-que-e-como-funciona-e-quem-precisa-pagar.jpg" alt="None" title="IPVA: O Que é, Como Funciona e Quem Precisa Pagar" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/ipva-o-que-e-como-funciona-e-quem-precisa-pagar/" class="text-decoration-none text-dark custom-hover">IPVA: O Que é, Como Funciona e Quem Precisa Pagar</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 30/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/principais-ferramentas-para-avaliar-precos-de-carros-usados/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/principais-ferramentas-para-avaliar-precos-de-carros-usados.jpg" alt="None" title="None" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/principais-ferramentas-para-avaliar-precos-de-carros-usados/" class="text-decoration-none text-dark custom-hover">Principais ferramentas para avaliar preços de carros usados</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 25/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp.jpg" alt="None" title="Como escolher serviços exclusivos de resgate privado em SP" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp/" class="text-decoration-none text-dark custom-hover">Como escolher serviços exclusivos de resgate privado em SP</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 23/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/o-que-levar-no-carro-para-acampar-com-as-criancas-lista-completa-e-dicas-praticas/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/acampar.jpg" alt="None" title="None" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/o-que-levar-no-carro-para-acampar-com-as-criancas-lista-completa-e-dicas-praticas/" class="text-decoration-none text-dark custom-hover">O Que Levar no Carro para Acampar com as Crianças: Lista Completa e Dicas Práticas</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 08/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/como-promover-sua-oficina-mecanica-na-internet/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/como-promover-sua-oficina-mecanica-na-internet.jpg" alt="None" title="Como promover sua oficina mecânica na internet" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/como-promover-sua-oficina-mecanica-na-internet/" class="text-decoration-none text-dark custom-hover">Como promover sua oficina mecânica na internet</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 05/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca.jpg" alt="None" title="Dicas para contratar locação de ônibus e vans em Jundiaí com segurança" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca/" class="text-decoration-none text-dark custom-hover">Dicas para contratar locação de ônibus e vans em Jundiaí com segurança</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 03/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney.jpg" alt="None" title="Roteiro automotivo: hotéis com temática de cinema perto da Disney" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney/" class="text-decoration-none text-dark custom-hover">Roteiro automotivo: hotéis com temática de cinema perto da Disney</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 02/03/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/como-escolher-o-melhor-despachante-em-goiania/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/como-escolher-o-melhor-despachante-em-goiania.jpg" alt="None" title="Como Escolher o Melhor Despachante em Goiânia" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/como-escolher-o-melhor-despachante-em-goiania/" class="text-decoration-none text-dark custom-hover">Como Escolher o Melhor Despachante em Goiânia</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 27/02/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-3 h-100">
-                        
-                        <a href="/dicas-de-treinamentos-para-atuar-no-mercado-automotivo/" class="flex-shrink-0 overflow-hidden shadow-sm">
-                            <img src="/static/uploads/dicas-de-treinamentos-para-atuar-no-mercado-automotivo.jpg" alt="None" title="Dicas de Treinamentos Para Atuar no Mercado Automotivo" class="hero-card img-zoom" style="width: 120px; height: 85px; object-fit: cover;" loading="lazy">
-                        </a>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold mb-1 lh-sm line-clamp-2" style="font-size: 0.95rem;">
-                                <a href="/dicas-de-treinamentos-para-atuar-no-mercado-automotivo/" class="text-decoration-none text-dark custom-hover">Dicas de Treinamentos Para Atuar no Mercado Automotivo</a>
-                            </h3>
-                            <div class="text-muted fw-semibold d-flex align-items-center gap-2 mt-1" style="font-size: 0.75rem;">
-                                
-                                <span class="text-dark"><i class="bi bi-person-fill text-muted"></i> Zequinha Meireles</span>
-                                <span><i class="bi bi-calendar3"></i> 19/02/2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        
-
-        
-        <nav aria-label="Navegação de páginas" class="mt-5 pt-4 border-top">
-            <ul class="pagination justify-content-center">
-                
-                <li class="page-item"><a class="page-link text-dark fw-bold border-0 bg-transparent" href="/page/4/"><i class="bi bi-arrow-left"></i> Mais Recentes</a></li>
-                
-                <li class="page-item disabled"><span class="page-link text-muted bg-transparent border-0 px-4">Página 5 de 8</span></li>
-                
-                <li class="page-item"><a class="page-link text-dark fw-bold border-0 bg-transparent" href="/page/6/">Mais Antigos <i class="bi bi-arrow-right"></i></a></li>
-                
-            </ul>
-        </nav>
-        
-
-    </main>
-
-    <footer class="text-light py-5 mt-auto" style="background-color: #212529;">
-        <div class="container">
-            <div class="row gy-4 text-center text-md-start">
-                <div class="col-lg-5 pe-lg-5">
-                    <p class="text-uppercase fw-bold mb-3 d-flex align-items-center justify-content-center justify-content-md-start">
-                        
-                            <img src="/static/uploads/patrulha-mirim.JPG" alt="Logo" width="120" height="35" style="height: 35px; width: auto; object-fit: contain;" class="bg-white rounded p-1" loading="lazy">
-                        
-                    </p>
-                    <p class="text-light opacity-75 small lh-lg mb-0">
-                        
-                    </p>
-                </div>
-                <div class="col-lg-3">
-                    <p class="text-uppercase fw-bold mb-3 text-white-50" style="font-size: 0.9rem; letter-spacing: 1px;">Navegação</p>
-                    <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
-                        
-                            <li><a href="/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Início</a></li>
-                            
-                            <li><a href="/sobre/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Sobre</a></li>
-                            
-                            <li><a href="/termos-e-condicoes-de-uso/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Termos e Condições de Uso</a></li>
-                            
-                            <li><a href="/politicas-de-privacidade/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Políticas de Privacidade</a></li>
-                            
-                            <li><a href="/contato/" class="text-decoration-none text-light opacity-75 custom-hover"><i class="bi bi-chevron-right small me-1"></i> Contato</a></li>
-                            
-                        
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <p class="text-uppercase fw-bold mb-3 text-white-50" style="font-size: 0.9rem; letter-spacing: 1px;">Siga-nos</p>
-                    <div class="d-flex gap-2 justify-content-center justify-content-md-start flex-wrap">
-                        
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
-            <hr class="mt-5 mb-4 border-secondary opacity-25">
-
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="small mb-0 opacity-75">
-                        Copyright © 2026 Patrulha Mirim
-                    </p>
-                </div>
-
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="list-inline mb-0">
-                        
-                            
-                            
-
-                            
-                        
-                            
-                            
-
-                            
-                        
-                            
-                            
-
-                            
-                        
-                            
-                            
-
-                            
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+<!-- Sub-Barra de Categoria (Rosa Escuro) -->
+<div class="gs-header__subbar">
     
+        <span>Patrulha Mirim</span>
+    
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            let postsData = null;
-            let carregandoBanco = false;
+<!-- Overlay Escuro do Menu -->
+<div class="gs-overlay" id="gs-overlay"></div>
 
-            searchInput.addEventListener('focus', async () => {
-                if (!postsData && !carregandoBanco) {
-                    carregandoBanco = true;
-                    try {
-                        const response = await fetch('/posts.json');
-                        if (response.ok) {
-                            postsData = await response.json();
-                        }
-                    } catch (error) {
-                        console.error("Erro ao carregar o banco de pesquisa.");
-                    }
+<!-- Menu Oculto (Offcanvas) -->
+<nav class="gs-nav-offcanvas" id="gs-offcanvas">
+    <button class="gs-nav-offcanvas__close" id="gs-menu-close" aria-label="Fechar Menu">
+        <i class="bi bi-x-lg"></i>
+    </button>
+    <br><br>
+    
+        <a href="/">INÍCIO</a>
+        
+            <a href="/categoria/carros/">Carros</a>
+        
+            <a href="/categoria/guias/">Guias</a>
+        
+            <a href="/categoria/testes/">Testes</a>
+        
+    
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- MENU HAMBURGUER LOGIC ---
+        const toggleBtn = document.getElementById('gs-menu-toggle');
+        const closeBtn = document.getElementById('gs-menu-close');
+        const offcanvas = document.getElementById('gs-offcanvas');
+        const overlay = document.getElementById('gs-overlay');
+
+        function openMenu() {
+            offcanvas.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            offcanvas.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // --- SEARCH LOGIC ---
+        const searchToggle = document.getElementById('gs-search-toggle');
+        const searchOverlay = document.getElementById('gs-search-overlay');
+        const searchClose = document.getElementById('gs-search-close');
+        const searchInput = document.getElementById('gs-search-input');
+        const searchResults = document.getElementById('gs-search-results');
+        let postsData = [];
+
+        if (searchToggle && searchOverlay) {
+            searchToggle.addEventListener('click', function() {
+                searchOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                searchInput.focus();
+                
+                // Fetch posts.json only once
+                if (postsData.length === 0) {
+                    fetch('/posts.json')
+                        .then(response => response.json())
+                        .then(data => { postsData = data; })
+                        .catch(err => console.error('Erro ao carregar pesquisa', err));
                 }
             });
-
-            searchInput.addEventListener('input', (e) => {
-                if (!postsData) return;
-
-                const query = e.target.value.toLowerCase().trim();
+            
+            searchClose.addEventListener('click', function() {
+                searchOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
                 searchResults.innerHTML = '';
-
-                if (query.length < 2) {
-                    searchResults.classList.add('d-none');
+                if (query.length < 2) return;
+                
+                const filtered = postsData.filter(post => post.title.toLowerCase().includes(query));
+                
+                if (filtered.length === 0) {
+                    searchResults.innerHTML = '<p style="color:#aaa; text-align:center; padding:1rem;">Nenhum resultado encontrado.</p>';
                     return;
                 }
+                
+                filtered.forEach(post => {
+                    const link = document.createElement('a');
+                    link.href = '/' + post.slug + '/';
+                    link.style.display = 'flex';
+                    link.style.gap = '15px';
+                    link.style.alignItems = 'center';
+                    link.style.padding = '10px 0';
+                    link.style.borderBottom = '1px solid #333';
+                    link.style.color = '#fff';
+                    link.style.textDecoration = 'none';
+                    
+                    let imgHtml = post.image ? `<img src="${post.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;">` : `<div style="width:60px; height:60px; background:#444; border-radius:4px;"></div>`;
+                    
+                    link.innerHTML = imgHtml + `<div><div style="font-size:0.8rem; color:#aaa;">${post.date || ''}</div><div style="font-weight:700;">${post.title}</div></div>`;
+                    searchResults.appendChild(link);
+                });
+            });
+        }
+    });
+</script>
 
-                const filteredPosts = postsData.filter(post =>
-                    post.title.toLowerCase().includes(query)
-                );
+<main style="max-width: 1400px; margin: 0 auto; overflow: hidden; padding-bottom: 3rem;">
+    
+        
+        <div class="gs-hero-carousel-wrapper">
+            <button class="gs-carousel-btn gs-carousel-prev" onclick="document.getElementById('main-carousel').scrollBy({left: -window.innerWidth * 0.7, behavior: 'smooth'})" aria-label="Anterior">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="gs-carousel-btn gs-carousel-next" onclick="document.getElementById('main-carousel').scrollBy({left: window.innerWidth * 0.7, behavior: 'smooth'})" aria-label="Próximo">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+            <div class="gs-hero-carousel" id="main-carousel">
+                
+                <article class="gs-hero-slide">
+                    <a href="/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo/">
+                        
+                            <img src="/static/uploads/qual-o-segredo-para-um-cheirinho-agradavel-dentro-do-seu-veiculo.jpg" alt="Qual o segredo para um cheirinho agradável dentro do seu veículo?">
+                        
+                        <div class="gs-hero-slide__content">
+                            
+                                <span class="gs-category-pill">Carros</span>
+                            
+                            <br>
+                            <h2 class="hero-title-box">
+                                <span>Qual o segredo para um cheirinho agradável dentro do seu veículo?</span>
+                            </h2>
+                        </div>
+                    </a>
+                </article>
+                
+                <article class="gs-hero-slide">
+                    <a href="/ipva-o-que-e-como-funciona-e-quem-precisa-pagar/">
+                        
+                            <img src="/static/uploads/ipva-o-que-e-como-funciona-e-quem-precisa-pagar.jpg" alt="IPVA: O Que é, Como Funciona e Quem Precisa Pagar">
+                        
+                        <div class="gs-hero-slide__content">
+                            
+                                <span class="gs-category-pill">Carros</span>
+                            
+                            <br>
+                            <h2 class="hero-title-box">
+                                <span>IPVA: O Que é, Como Funciona e Quem Precisa Pagar</span>
+                            </h2>
+                        </div>
+                    </a>
+                </article>
+                
+                <article class="gs-hero-slide">
+                    <a href="/principais-ferramentas-para-avaliar-precos-de-carros-usados/">
+                        
+                            <img src="/static/uploads/principais-ferramentas-para-avaliar-precos-de-carros-usados.jpg" alt="Principais ferramentas para avaliar preços de carros usados">
+                        
+                        <div class="gs-hero-slide__content">
+                            
+                                <span class="gs-category-pill">Carros</span>
+                            
+                            <br>
+                            <h2 class="hero-title-box">
+                                <span>Principais ferramentas para avaliar preços de carros usados</span>
+                            </h2>
+                        </div>
+                    </a>
+                </article>
+                
+                <article class="gs-hero-slide">
+                    <a href="/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp/">
+                        
+                            <img src="/static/uploads/como-escolher-servicos-exclusivos-de-resgate-privado-em-sp.jpg" alt="Como escolher serviços exclusivos de resgate privado em SP">
+                        
+                        <div class="gs-hero-slide__content">
+                            
+                                <span class="gs-category-pill">Guias</span>
+                            
+                            <br>
+                            <h2 class="hero-title-box">
+                                <span>Como escolher serviços exclusivos de resgate privado em SP</span>
+                            </h2>
+                        </div>
+                    </a>
+                </article>
+                
+                <article class="gs-hero-slide">
+                    <a href="/o-que-levar-no-carro-para-acampar-com-as-criancas-lista-completa-e-dicas-praticas/">
+                        
+                            <img src="/static/uploads/acampar.jpg" alt="O Que Levar no Carro para Acampar com as Crianças: Lista Completa e Dicas Práticas">
+                        
+                        <div class="gs-hero-slide__content">
+                            
+                                <span class="gs-category-pill">Guias</span>
+                            
+                            <br>
+                            <h2 class="hero-title-box">
+                                <span>O Que Levar no Carro para Acampar com as Crianças: Lista Completa e Dicas Práticas</span>
+                            </h2>
+                        </div>
+                    </a>
+                </article>
+                
+            </div>
+        </div>
 
-                if (filteredPosts.length > 0) {
-                    filteredPosts.forEach(post => {
-                        const link = document.createElement('a');
-                            const url = `/${post.slug}/`;
-                            link.href = url;
-                            link.className = 'list-group-item list-group-item-action d-flex align-items-center py-3 border-start-0 border-end-0 border-top-0';
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            
+            
 
-                        const imgHtml = post.image
-                            ? `<img src="${post.image}" class="rounded me-3 object-fit-cover" style="width: 45px; height: 45px;">`
-                            : `<div class="bg-secondary rounded me-3 opacity-25" style="width: 45px; height: 45px;"></div>`;
-
-                        link.innerHTML = `
-                            ${imgHtml}
-                            <div class="overflow-hidden">
-                                <h6 class="mb-0 text-truncate text-dark fw-bold" style="font-size: 0.9rem;">${post.title}</h6>
-                                <small class="text-muted" style="font-size: 0.75rem;">${post.date}</small>
+            
+            
+            
+                <h3 class="gs-highlight-header" style="border-left-color: #555; margin-top: 3rem;">Últimas Notícias</h3>
+                <div class="gs-feed-list">
+                    
+                    <article class="gs-feed-item">
+                        <a href="/como-promover-sua-oficina-mecanica-na-internet/" style="display: flex; gap: 1rem; width: 100%; text-decoration: none; color: inherit;">
+                            <div class="gs-feed-item__img">
+                                
+                                    <img src="/static/uploads/como-promover-sua-oficina-mecanica-na-internet.jpg" alt="Como promover sua oficina mecânica na internet" loading="lazy">
+                                
                             </div>
-                        `;
-                        searchResults.appendChild(link);
-                    });
-                    searchResults.classList.remove('d-none');
-                } else {
-                    searchResults.innerHTML = '<div class="list-group-item text-muted text-center py-3 border-0 small">Nenhum artigo encontrado.</div>';
-                    searchResults.classList.remove('d-none');
-                }
-            });
-
-            document.addEventListener('click', (e) => {
-                if (searchInput && searchResults && !searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-                    searchResults.classList.add('d-none');
-                }
-            });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-
+                            <div class="gs-feed-item__content">
+                                
+                                    <span style="color: var(--accent-color); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.3rem; display: block;">Guias</span>
+                                
+                                <h3 class="gs-feed-item__title">Como promover sua oficina mecânica na internet</h3>
+                                
+                                    <p class="gs-feed-item__excerpt">Aprenda estratégias eficazes para promover sua oficina mecânica na internet e atrair mais clientes online. Dicas práticas e fáceis!</p>
+                                
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="gs-feed-item">
+                        <a href="/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca/" style="display: flex; gap: 1rem; width: 100%; text-decoration: none; color: inherit;">
+                            <div class="gs-feed-item__img">
+                                
+                                    <img src="/static/uploads/dicas-para-contratar-locacao-de-onibus-e-vans-em-jundiai-com-seguranca.jpg" alt="Dicas para contratar locação de ônibus e vans em Jundiaí com segurança" loading="lazy">
+                                
+                            </div>
+                            <div class="gs-feed-item__content">
+                                
+                                    <span style="color: var(--accent-color); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.3rem; display: block;">Guias</span>
+                                
+                                <h3 class="gs-feed-item__title">Dicas para contratar locação de ônibus e vans em Jundiaí com segurança</h3>
+                                
+                                    <p class="gs-feed-item__excerpt">Saiba como contratar locação de ônibus e vans em Jundiaí com segurança e economia. Dicas essenciais para viagens tranquilas e confiáveis!</p>
+                                
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="gs-feed-item">
+                        <a href="/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney/" style="display: flex; gap: 1rem; width: 100%; text-decoration: none; color: inherit;">
+                            <div class="gs-feed-item__img">
+                                
+                                    <img src="/static/uploads/roteiro-automotivo-hoteis-com-tematica-de-cinema-perto-da-disney.jpg" alt="Roteiro automotivo: hotéis com temática de cinema perto da Disney" loading="lazy">
+                                
+                            </div>
+                            <div class="gs-feed-item__content">
+                                
+                                    <span style="color: var(--accent-color); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.3rem; display: block;">Guias</span>
+                                
+                                <h3 class="gs-feed-item__title">Roteiro automotivo: hotéis com temática de cinema perto da Disney</h3>
+                                
+                                    <p class="gs-feed-item__excerpt">Descubra hotéis temáticos de cinema perto da Disney e viva uma experiência automotiva única. Reserve agora e aproveite conforto e diversão!</p>
+                                
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="gs-feed-item">
+                        <a href="/como-escolher-o-melhor-despachante-em-goiania/" style="display: flex; gap: 1rem; width: 100%; text-decoration: none; color: inherit;">
+                            <div class="gs-feed-item__img">
+                                
+                                    <img src="/static/uploads/como-escolher-o-melhor-despachante-em-goiania.jpg" alt="Como Escolher o Melhor Despachante em Goiânia" loading="lazy">
+                                
+                            </div>
+                            <div class="gs-feed-item__content">
+                                
+                                    <span style="color: var(--accent-color); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.3rem; display: block;">Carros</span>
+                                
+                                <h3 class="gs-feed-item__title">Como Escolher o Melhor Despachante em Goiânia</h3>
+                                
+                                    <p class="gs-feed-item__excerpt">Descubra dicas essenciais para escolher o melhor despachante em Goiânia com segurança, agilidade e preços justos. Confira agora!</p>
+                                
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="gs-feed-item">
+                        <a href="/dicas-de-treinamentos-para-atuar-no-mercado-automotivo/" style="display: flex; gap: 1rem; width: 100%; text-decoration: none; color: inherit;">
+                            <div class="gs-feed-item__img">
+                                
+                                    <img src="/static/uploads/dicas-de-treinamentos-para-atuar-no-mercado-automotivo.jpg" alt="Dicas de Treinamentos Para Atuar no Mercado Automotivo" loading="lazy">
+                                
+                            </div>
+                            <div class="gs-feed-item__content">
+                                
+                                    <span style="color: var(--accent-color); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.3rem; display: block;">Guias</span>
+                                
+                                <h3 class="gs-feed-item__title">Dicas de Treinamentos Para Atuar no Mercado Automotivo</h3>
+                                
+                                    <p class="gs-feed-item__excerpt">Descubra dicas essenciais de treinamentos para se destacar e crescer no mercado automotivo. Prepare-se para novas oportunidades e sucesso profissional!</p>
+                                
+                            </div>
+                        </a>
+                    </article>
+                    
+                </div>
+            
+        </div>
     
 
+    
+    <nav class="pagination" style="margin-top: 4rem; text-align: center;">
+        
+            <a href="/page/4/" style="padding: 0.8rem 1.5rem; background: #eee; border-radius: 4px; font-weight: 700; margin-right: 1rem; color: #333; text-decoration: none;">Anterior</a>
+        
+        
+            <a href="/page/6/" style="padding: 0.8rem 1.5rem; background: var(--accent-color); color: #fff; border-radius: 4px; font-weight: 700; text-decoration: none;">Próxima</a>
+        
+    </nav>
+    
+</main>
+
+<footer class="gs-footer">
+    <div class="container">
+        <div class="gs-footer__social">
+            
+            
+            
+            
+        </div>
+        
+        <ul class="gs-footer__menu">
+            
+        </ul>
+        
+        
+        <div class="gs-footer__copyright">
+            Copyright © 2026 Patrulha Mirim
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Carrossel nativo simplificado (substituto das chamadas de script originais caso tenha blocos CMS)
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(e) {
+            const btnPrev = e.target.closest('.btn-carousel-prev');
+            if (btnPrev) {
+                const wrapper = btnPrev.closest('div[id^="carrossel-"]');
+                const track = wrapper.querySelector('.dsc-track');
+                const item = track.querySelector('.dsc-item');
+                if (track && item) {
+                    const scrollAmount = item.offsetWidth + 20;
+                    if (track.scrollLeft <= 5) { track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' }); } 
+                    else { track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }); }
+                }
+                return;
+            }
+            const btnNext = e.target.closest('.btn-carousel-next');
+            if (btnNext) {
+                const wrapper = btnNext.closest('div[id^="carrossel-"]');
+                const track = wrapper.querySelector('.dsc-track');
+                const item = track.querySelector('.dsc-item');
+                if (track && item) {
+                    const scrollAmount = item.offsetWidth + 20;
+                    if (track.scrollLeft + track.offsetWidth >= track.scrollWidth - 5) { track.scrollTo({ left: 0, behavior: 'smooth' }); } 
+                    else { track.scrollBy({ left: scrollAmount, behavior: 'smooth' }); }
+                }
+                return;
+            }
+        });
+    });
+</script>
 </body>
 </html>
