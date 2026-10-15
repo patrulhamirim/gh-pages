@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Shop That Accepts Extended Car Warranties in North Charleston: Claims Authorization, Deductible Processing, and OEM Parts Standards - Patrulha Mirim</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="canonical" href="https://www.patrulhamirim.com.br/repair-shop-that-accepts-extended-car-warranties-in-north-charleston-claims-authorization-deductible-processing-and-oem-parts-standards/" />
+    
+    
+    
+    
+    <link rel="icon" href="/static/uploads/icon.JPG" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/uploads/icon.JPG">
+    
+
+    <link rel="stylesheet" href="/themes/gshow_pop_v2/assets/css/style.css?v=2.0">
+    <!-- Bootstrap Icons (Usado internamente pelo CMS e para redes sociais) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Algumas lógicas do CMS dependem de classes Bootstrap puras (RaioX). Injetamos a versão ultra-leve do bootstrap apenas para os blocos do CMS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Sistema de Paletas de Cores -->
+    
+    <style>
+        :root {
+            --accent-color: #c4170c !important;
+            --accent-hover: #9c1209 !important;
+            --accent-dark: #750d07 !important;
+        }
+    </style>
+    
+
+    
+</head>
+<body>
+<header class="gs-header">
+    <div class="gs-header__container">
+        <!-- Lado Esquerdo -->
+        <div class="gs-header__left">
+            <button class="gs-header__menu-btn" id="gs-menu-toggle" aria-label="Abrir Menu">
+                <i class="bi bi-list"></i>
+                <span class="gs-header__menu-text">MENU</span>
+            </button>
+
+            <a href="/" class="gs-header__logo">
+                
+                    <img src="/static/uploads/patrulha-mirim.JPG" alt="Patrulha Mirim">
+                
+            </a>
+        </div>
+
+        <!-- Centro: Nome do Site com fonte fina -->
+        <a href="/" class="gs-header__center">
+            Patrulha Mirim
+        </a>
+
+        <!-- Lado Direito: Buscar -->
+        <div class="gs-header__right">
+            <button class="gs-header__right-item" id="gs-search-toggle" aria-label="Pesquisar" style="background:none; border:none; color:#fff;">
+                <i class="bi bi-search"></i>
+                <span style="text-transform: uppercase;">Buscar</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Overlay de Busca (Search Modal) -->
+<div class="gs-search-overlay" id="gs-search-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; padding:2rem;">
+    <button id="gs-search-close" style="position:absolute; top:20px; right:30px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer;"><i class="bi bi-x-lg"></i></button>
+    <div style="max-width:600px; margin: 4rem auto 0; text-align:center;">
+        <input type="text" id="gs-search-input" placeholder="O que você está procurando?" style="width:100%; padding:1rem; font-size:1.5rem; border:none; border-bottom:2px solid var(--accent-color); background:transparent; color:#fff; outline:none; font-family:var(--font-ui);">
+        <div id="gs-search-results" style="margin-top:2rem; text-align:left; max-height:60vh; overflow-y:auto; font-family:var(--font-ui);"></div>
+    </div>
+</div>
+
+<!-- Sub-Barra de Categoria (Rosa Escuro) -->
+<div class="gs-header__subbar">
+    
+        <a href="/categoria/testes/" style="color:#ffffff;">Testes</a>
+    
+</div>
+
+<!-- Overlay Escuro do Menu -->
+<div class="gs-overlay" id="gs-overlay"></div>
+
+<!-- Menu Oculto (Offcanvas) -->
+<nav class="gs-nav-offcanvas" id="gs-offcanvas">
+    <button class="gs-nav-offcanvas__close" id="gs-menu-close" aria-label="Fechar Menu">
+        <i class="bi bi-x-lg"></i>
+    </button>
+    <br><br>
+    
+        <a href="/">INÍCIO</a>
+        
+            <a href="/categoria/carros/">Carros</a>
+        
+            <a href="/categoria/guias/">Guias</a>
+        
+            <a href="/categoria/testes/">Testes</a>
+        
+    
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- MENU HAMBURGUER LOGIC ---
+        const toggleBtn = document.getElementById('gs-menu-toggle');
+        const closeBtn = document.getElementById('gs-menu-close');
+        const offcanvas = document.getElementById('gs-offcanvas');
+        const overlay = document.getElementById('gs-overlay');
+
+        function openMenu() {
+            offcanvas.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            offcanvas.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // --- SEARCH LOGIC ---
+        const searchToggle = document.getElementById('gs-search-toggle');
+        const searchOverlay = document.getElementById('gs-search-overlay');
+        const searchClose = document.getElementById('gs-search-close');
+        const searchInput = document.getElementById('gs-search-input');
+        const searchResults = document.getElementById('gs-search-results');
+        let postsData = [];
+
+        if (searchToggle && searchOverlay) {
+            searchToggle.addEventListener('click', function() {
+                searchOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                searchInput.focus();
+                
+                // Fetch posts.json only once
+                if (postsData.length === 0) {
+                    fetch('/posts.json')
+                        .then(response => response.json())
+                        .then(data => { postsData = data; })
+                        .catch(err => console.error('Erro ao carregar pesquisa', err));
+                }
+            });
+            
+            searchClose.addEventListener('click', function() {
+                searchOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                searchResults.innerHTML = '';
+                if (query.length < 2) return;
+                
+                const filtered = postsData.filter(post => post.title.toLowerCase().includes(query));
+                
+                if (filtered.length === 0) {
+                    searchResults.innerHTML = '<p style="color:#aaa; text-align:center; padding:1rem;">Nenhum resultado encontrado.</p>';
+                    return;
+                }
+                
+                filtered.forEach(post => {
+                    const link = document.createElement('a');
+                    link.href = '/' + post.slug + '/';
+                    link.style.display = 'flex';
+                    link.style.gap = '15px';
+                    link.style.alignItems = 'center';
+                    link.style.padding = '10px 0';
+                    link.style.borderBottom = '1px solid #333';
+                    link.style.color = '#fff';
+                    link.style.textDecoration = 'none';
+                    
+                    let imgHtml = post.image ? `<img src="${post.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;">` : `<div style="width:60px; height:60px; background:#444; border-radius:4px;"></div>`;
+                    
+                    link.innerHTML = imgHtml + `<div><div style="font-size:0.8rem; color:#aaa;">${post.date || ''}</div><div style="font-weight:700;">${post.title}</div></div>`;
+                    searchResults.appendChild(link);
+                });
+            });
+        }
+    });
+</script>
+
+<main class="container" style="padding-top: 3rem;">
+    <article>
+        <header class="post-header">
+            
+            <h1 class="post-title">Repair Shop That Accepts Extended Car Warranties in North Charleston: Claims Authorization, Deductible Processing, and OEM Parts Standards</h1>
+            
+            
+
+            <div class="post-meta" style="margin-top: 1rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 1rem 0; max-width: 760px; margin-left: auto; margin-right: auto;">
+                
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                        
+                            <i class="bi bi-person-circle" style="font-size: 2rem; color: var(--text-muted);"></i>
+                        
+                        <span style="font-weight: 700; color: var(--text-main);">Por <a href="/autor/zequinha-meireles/" style="color: var(--accent-color);">Zequinha Meireles</a></span>
+                    </div>
+                
+                <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem; flex: 1 1 auto;">
+                    <time datetime="2026-10-15" style="color: var(--text-muted);">
+                        15/10/2026 14:08
+                    </time>
+                    <div style="display: flex; gap: 15px; font-size: 1.3rem; color: var(--accent-color);">
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        
+            <figure class="post-featured-image">
+                <img src="/static/uploads/repair-shop-that-accepts-extended-car-warranties-in-north-charleston-claims-authorization-deductible-processing-and-oem-parts-standards.webp?v=1792073303" alt="Repair Shop That Accepts Extended Car Warranties in North Charleston: Claims Authorization, Deductible Processing, and OEM Parts Standards">
+            </figure>
+        
+
+        
+
+        <div class="post-content">
+            <div id="model-response-message-contentr_99f12c96d83bbb40" class="markdown markdown-main-panel md-content enable-luminous-fast-follows enable-updated-hr-color stronger" dir="ltr" style="--animation-duration: 400ms; --fade-animation-function: ease-out; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" aria-busy="false" aria-live="polite">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Vehicle owners across the commercial and commuter corridors of North Charleston, South Carolina&mdash;navigating daily transit along Interstate 26, the Mark Clark Expressway (I-526), Rivers Avenue, and Ashley Phosphate Road&mdash;frequently invest in third-party vehicle service contracts (VSCs) or aftermarket extended warranties. These policies provide financial defense against sudden mechanical, hydraulic, or electronic breakdowns once original factory bumper-to-bumper and powertrain warranties expire. However, holding an extended warranty policy does not guarantee a frictionless claims experience. When unexpected failures occur&mdash;such as blown head gaskets, failed transmission solenoid packs, or seized air conditioning compressors&mdash;motorists often discover that dealership service departments require weeks of diagnostic lead time, while many independent garages refuse to process third-party paperwork entirely.</div>
+<br>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Finding a dedicated <a href="https://themobileautoshopsc.com/extended-warranty-repair/"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="2" data-index-in-node="20">repair shop that accepts extended car warranties in North Charleston</strong></a> bridges this administrative divide. Managing aftermarket coverage demands technical competency paired with professional claims adjudication, accurate labor-guide cross-referencing, digital teardown documentation, and strict adherence to Original Equipment Manufacturer (OEM) parts sourcing. Rather than forcing policyholders to navigate bureaucratic adjusters, pay thousands out-of-pocket, or wait for reimbursement, an experienced warranty repair facility acts as the customer's direct advocate. This comprehensive operational review examines the claims authorization protocol, third-party administrator communications, deductible processing, teardown parameters, and parts advocacy executed by a specialized <strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="2" data-index-in-node="799">repair shop that accepts extended car warranties in North Charleston</strong>.</div>
+<br>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="4">The Landscape of Vehicle Service Contracts and Third-Party Administrators</h2>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Navigating extended coverage requires understanding how aftermarket policies differ fundamentally from manufacturer factory warranties. Factory warranties are backed directly by automakers (such as Ford, General Motors, Toyota, or BMW) through internal dealer networks. In contrast, extended warranties are independent Vehicle Service Contracts managed by third-party administrators (TPAs).</div>
+<br><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="code-block ng-tns-c3641845170-501 ng-animate-disabled ng-trigger ng-trigger-codeBlockRevealAnimation" style="display: block; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-hveid="0" data-ved="0CAAQhtANahgKEwip7OTqkbyXAxUAAAAAHQAAAAAQ_wY"><!---->
+<div class="formatted-code-block-internal-container ng-tns-c3641845170-501" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="animated-opacity ng-tns-c3641845170-501" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<pre class="ng-tns-c3641845170-501" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><code class="code-container formatted ng-tns-c3641845170-501 no-decoration-radius" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="text" data-test-id="code-content">+-----------------------------------------------------------------------------------------+
+|                               EXTENDED WARRANTY COVERAGE PLATFORMS                      |
++--------------------------+-----------------------+------------------+-------------------+
+| Policy Classification    | Primary Coverage Scope| Excluded Items   | Adjudication Type |
++--------------------------+-----------------------+------------------+-------------------+
+| Powertrain Only          | Engine, Transmission, | Electrical, A/C, | Named-Component   |
+|                          | Drive Axle Assemblies | Suspension, Brakes| (Strict List)    |
+| Stated-Component (Silver)| Major Mechanical &amp;    | Electronics, Wear| Named-Component   |
+|                          | Core HVAC / Fuel      | Items, Seals     | (Listed Exclusions|
+| Exclusionary (Bumper-to- | All Components Except | Wear &amp; Tear, Oil | Exclusionary      |
+| Bumper Equivalent)       | Specific Named Items  | Tires, Rotors    | (Broadest Form)   |
++--------------------------+-----------------------+------------------+-------------------+
+</code></pre>
+<!----></div>
+</div>
+</div>
+<!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="7">Major Third-Party Warranty Administrators</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Independent warranty repair facilities interact daily with diverse third-party administrative bodies operating throughout the United States, including:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,0,0" data-index-in-node="0">CarShield</strong> (administered primarily by American Auto Shield)</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,1,0" data-index-in-node="0">Endurance Warranty Services</strong></div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,2,0" data-index-in-node="0">CARCHEX</strong> (multiple underlying administrator syndicates)</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,3,0" data-index-in-node="0">SilverRock</strong> (frequently paired with regional and national pre-owned platforms)</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,4,0" data-index-in-node="0">Fidelity Warranty Services</strong></div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,5,0" data-index-in-node="0">Ally Premier Protection</strong></div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="9,6,0" data-index-in-node="0">AAS (American Auto Shield), Zurich, and Assurant Solutions</strong></div>
+</li>
+</ul>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Each administrator operates with distinct labor rate caps, diagnostic fee coverage policies, physical inspector dispatch rules, and parts-markup ceilings. An experienced facility maintains dedicated service advisors trained to read policy terms, identify contractual ambiguities, and protect the customer's rights throughout the claim lifecycle.</div>
+<br>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="12">The Claims Authorization Lifecycle: From Diagnostic Intake to Payment Approval</h2>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">The primary cause of denied warranty claims is initiating physical repairs before securing formal claims authorization from the administrator. Third-party policies universally state that any work performed prior to generating an official authorization number will be rejected without appeal.</div>
+<br><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="code-block ng-tns-c3641845170-502 ng-animate-disabled ng-trigger ng-trigger-codeBlockRevealAnimation" style="display: block; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-hveid="0" data-ved="0CAAQhtANahgKEwip7OTqkbyXAxUAAAAAHQAAAAAQgAc"><!---->
+<div class="formatted-code-block-internal-container ng-tns-c3641845170-502" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="animated-opacity ng-tns-c3641845170-502" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<pre class="ng-tns-c3641845170-502" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><code class="code-container formatted ng-tns-c3641845170-502 no-decoration-radius" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="text" data-test-id="code-content">       [ Customer Drop-Off &amp; Policy Agreement Verification ]
+                                 |
+                                 v
+       [ Certified Diagnostic Isolation &amp; Code / Physical Proof ]
+                                 |
+                                 v
+       [ Estimate Compilation: Labor Matrix, Part Numbers, Costs ]
+                                 |
+                                 v
+       [ Claim Submission to Third-Party Administrator (TPA) ]
+                                 |
+        +------------------------+------------------------+
+        |                                                 |
+  [ Direct Approval ]                             [ Inspector Dispatched ]
+        |                                                 |
+(Under Limit / Clear Failure)                     (Visual Audit at Shop)
+        |                                                 |
+        +------------------------+------------------------+
+                                 |
+                                 v
+       [ Official Prior Authorization (PA) Number Issued ]
+                                 |
+                                 v
+       [ Mechanical Disassembly, Repair, &amp; OEM Installation ]
+                                 |
+                                 v
+       [ Deductible Collection &amp; Direct TPA Corporate Payment ]
+</code></pre>
+<!----></div>
+</div>
+</div>
+<!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="15">Phase 1: Diagnostic Verification and Digital Evidence Gathering</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">When a vehicle enters the facility, ASE-certified technicians execute structured diagnostics:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="17">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="17,0,0" data-index-in-node="0">Digital System Scanning:</strong> Interrogating onboard computers across powertrain, chassis, and body modules to extract confirmed Diagnostic Trouble Codes (DTCs), freeze-frame data, and live sensor anomalies.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="17,1,0" data-index-in-node="0">Mechanical and Physical Documentation:</strong> Technicians capture high-definition photographs and digital scope recordings verifying mechanical failure. Examples include photographing metal flakes suspended in a transmission pan, video-recording play in a ball joint, or using an ultrasonic gauge to record blown cylinder compression.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="17,2,0" data-index-in-node="0">Component Causation Reports:</strong> The warranty company requires an explicit explanation of <em style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="17,2,0" data-index-in-node="86">how</em> and <em style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="17,2,0" data-index-in-node="94">why</em> the component failed, confirming the breakdown was caused by progressive mechanical failure rather than driver abuse, racing, or environmental contamination.</div>
+</li>
+</ul>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="18">Phase 2: Estimate Construction and Labor-Guide Cross-Referencing</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Once the failure is isolated, the service advisor builds a formal repair order cross-referenced against standardized flat-rate labor databases:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="20">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="20,0,0" data-index-in-node="0">Standard Labor Guides:</strong> Warranty administrators evaluate labor hours against industry guidelines such as Mitchell 1, ALLDATA, or Chilton. The shop structures line items matching these time allocations precisely to prevent labor reduction disputes.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="20,1,0" data-index-in-node="0">Diagnostic Time Advocacy:</strong> Many warranty companies attempt to exclude diagnostic labor fees from coverage. The repair shop works within contract terms to justify diagnostic time&mdash;such as lab scope analysis or pin-out circuit tests&mdash;ensuring minimal diagnostic out-of-pocket costs for the customer.</div>
+</li>
+</ul>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">The videos below illustrate the realities of dealing with extended warranty administrators, highlighting the common roadblocks vehicle owners face and why direct shop communication is critical:</div>
+<br>
+<div class="attachment-container unknown md-has-block-component" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="carousel-scroll-area" style="--carousel-item-max-width: 708px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="group">
+<div class="carousel-container" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="base-video-card has-metadata" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" tabindex="0" role="button" aria-label="Extended Warranty Owners Are Getting Ripped Off" data-hveid="1">
+<div class="base-video-container" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<div class="base-video-thumbnail ng-star-inserted" style="background-image: url('https://i.ytimg.com/vi/Qk2uzfECZAg/maxresdefault.jpg'); font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">&nbsp;</div>
+<div class="base-video-scrim ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">&nbsp;</div>
+<div class="base-video-platform-icon-container ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><img style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" src="data:image/png;base64,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" width="192" height="192"></div>
+<!---->
+<div class="base-video-player-icon ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!----><!----><!----><!----></div>
+<div class="base-video-timestamp-badge ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">12:09</div>
+<!----><!----></div>
+<div class="base-video-metadata ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="base-video-title ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" title="Extended Warranty Owners Are Getting Ripped Off">Extended Warranty Owners Are Getting Ripped Off</div>
+<!---->
+<div class="base-video-subtitle ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><span class="base-video-platform-name ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">YouTube</span><!----><span class="base-video-separator ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"> &middot; </span><!----><span class="base-video-creator-name ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Chevy Dude</span><!----></div>
+<!----></div>
+<!----></div>
+<!----><!----><!----><!----><!---->
+<div class="base-video-card has-metadata" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" tabindex="0" role="button" aria-label="How &quot;Extended Warranties&quot; Really Work (And Why We Dont Play Thier Game)" data-hveid="2">
+<div class="base-video-container" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<div class="base-video-thumbnail ng-star-inserted" style="background-image: url('https://i.ytimg.com/vi/NHDuprcP2Uw/maxresdefault.jpg'); font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">&nbsp;</div>
+<div class="base-video-scrim ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">&nbsp;</div>
+<div class="base-video-platform-icon-container ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><img style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAL1UlEQVR4Xu3de6hmVR3G8e8CI7UwKXGkJA2svJUz4ogodPmvdAQt/CcKNLDspg2JliQZQaYVmVja1UklvDUazoyBSileUPOSzow6Cs2IjhozMqiZc4Edv7P3Wmdzxjlnr7Uv756zng9sztm/8zrvPq/rOft9914Xh0jGXMa/u4gCIHnTGUCypgBI1hQAyZoCIFlTACRrCoBkTQGQrCkAkjUFQLKmAEjWFADJmgIgWVMAJGsKgGRNAZCsKQCSNQVAsqYASNYUAMmaAiBZUwAkawqAZE0BkKwpAJI1BUCypgBI1hQAyZoCIFlTACRrCoBkTQGQrCkAkjUFQLKmAOxCAftSbnV7AAeGvZ0dAOwZ9nZ2cPhuduvDdzt7C3g57O3sBWBH2CttcbAl7EmwWwegKBubNbp6w/SNzDfG99Qasn+8V2+QczXe+cQCYkHx6qHZBLxRfW9fN1c/84/3j7UQWhg3uenH73ZGF4CibIj1zRrp+4D9ajX73jYZDzvDWHgsIPbVtleqs5mFZWpzs5+9BjexAFRvMY4DFgJHAYdU28y3HTK/2NniOeBp4BngceBeVwZmcIMGoIB3A18Evlo1fBHPQvEH4PdDhqH3AFTv00+qbfuHX1lkZ3YmWAmssq3vzxe9BqB6P/87YEkoijT3T+AMB6tDpWO9BaCAM4FzgCNCUSTeOuAyB1eGSoc6D0ABC6qGb9ve4Qci6bZaCKogdHoVqdMAFOX1+KurD7oiXfsHcHKXnws6C0AB76xSelYoinTvKuDbrjwrtNZlAM4DLgkFkf6c7+DSsNdCJwEo4LTqr//7Q1GkPxurs8BNoZKodQAKOKZq/CeEokj/7qtCYJdKk3URgJ/YKSkURIZziYPvtnm6VgEo4IPVXbsjQ1FkOHaD7CQHz6c+ZdsAfA34dSiIDO/rbW6StQ3Aiqp/j8ikrHQtutokB6CAEykDkPxviHSgsL5mruw8Fy258RZwLvDTUBCZnCscfCvl6dsE4Db18pSRWOHg5JRjSQpAAfsATwAHhaLI5GwAPu7gtdhDSA3A8TB1I0JkLE5wcH/swaQGwIY0WqckkbE4y8FvYg8mNQAX0/IOnEjHrnPwpbDXUGoA7JLTZ0NBZPJud+Wl+SipAVgDHB4KIpO31iUMv40OQFFOUmWTHdkUJyJjYaPEDnLwaswBpQRgEfBoKIiMx9EOHos5nJQAnALcEgoi43Gqg1tjDiclAGcDvwwFkfE4x8HlMYeTEoDvAz8KBZHxsGkVbT6qxlIC8EebrSsURMbjagdfjjmclABoDICMVfTYgJQAPAQsDoWcLVwIj9vs3jISDzs4NuZYUgLw74ilfua37dth2TK48EJ4udMZ+yTNegcfCnsNRAWgmt/fVv3QnJ9TL4gNRgKefRauuQauvRY2WM9cmZA3gQUxUyfGBsDm/tweCrnzAfDuuWc6CNu2hbIM6sOuXGyjkdgA6C5w3cwAeDfcUAZhVdIwVWlnkSuXXWokNgCfAv4eCrnbVQDM5s3lmcCC8FjU3Xlp59OunEW6kdgAqBtE3WwB8FavLoNg20svhbL05hQHfw17c4gNwOnV/P8y9YI0CIB3xx3TQZA+ne7gT2FvDrEBsFVfbCJcmXpBIgLg+Q/Jd94ZStIpmzC3cV+12AD8ALgoFHKXEgBjb4V8ENbY2CLp0EUOfhj25hAbAGv8FgKZekESA+A9+uh0EF6NGschu7bMRfRViw2Ajbr/Sijkrm0AvJUryyDceGMoSbLfunLWkkZiA2Cf4LQAXnhBOgqA2bp1+kOy3VCTVFGzQ8QG4C/A50Ihd10GwFu/fjoI1sVCYi138PmwN4fYANwOfCYUctdHALwHHpgOwhuNu7YI/M1FTNkTG4C7gU+EQu76DIC3fHkZglujhrrm7B4Hn2z6AsQGwLpBWHcImXpBBgiAef316atFDz6o1352UV2iYwPwpNYDqxkqAN66dWUILAzPJy+LNd+tdvCxpr9kbACeAT4SCrkbOgDe3XdPB8EG5UjdOgcfDXtziA3AU8ChoZC7SQXAu/76Mgjqdl33loO9wt4cYgPwolaDr5l0AMymTWUIbFO3a7PRwQemvmsgNgAaD1w3hgB4Tz45HYTMxye7iHbd+IGmKMdavisUcjemAHjW7do+G1x3XShl5r8uYuLm2AC8rlmha8YYAH9c/kPyXXdVB5uPPs8AA1343k2MNQDexo3TQVi7NpTnOwVgKGMPgPfII9OfDzLodq0ADEUBGCUFYChjD4DeAs0p9jPA/4A9QyF3Yw2APgQ3bteNH2h0GXSGMQZAl0F7vQyqG2F1YwqAzT/ke4zqRljjdt34gUZdIWYYQwDUFWKmXrtC2Bi9Q0Ihd5MOgDrDvZ0dDt4R9uYQGwB1h66bVADUHXo2vXaH1oCYuqEDoAExTfQ6IEZDIuuGCoANifRdGjQkci69DonUoPi6IQJwyy1lw9eg+KZ6HRSvaVHq+gyApkVJ1eu0KJoYq66PAGhirLZ6nRhLUyPWdRkATY3YlV6nRtTkuHVdBcAmx7UPuba2mLTV6+S4mh69rm0AbHp0f3Ung376A+l1enQtkFGXGgBbIMM3fC2Q0bVeF8jQEkl1KQHwHda0RFJfel0iSYvk1cUEQIvkDeUMB8uaPllsALRMal2TAGiZ1KGd6qDxVNqxAdBC2XWzBUALZU9KrwtlL7JrF6GQu10FwC5n2nt9zdk5CYscPN70iWMDYOOBbVywTL0gMwJga3v5D7nbtoWyDOowB083fcbYANhYy1eAvUMxZz4AtpaXb/gbNuT8ikzam8ACV07h2UhUAIzGBddYAOxy5tKl5YddmbQNDg6OOYiUADwELA6FnC1ZAitW5PwKjM3DDo6NOaiUANj/8ZNCQWQ8VjpYEnM4KQG4mvKGmMjYRPUDMikBuAQ4LxRExuNSB+fHHE5KAM4moq+FyIDOcXB5zPOlBEDdIWSsorpBmJQA6G6wjNXRDh6LObiUALwXsLs9jScgFRmA3fw62MHmmOeKDoApYA1weCiITN5aB0fEHkZqAFYRMfWEyABud3Bi7POkBuAXNvImFEQm72YHp8UeRmoAbNT9VaEgMnlnuXLWkiipATgeuC8URCbvBAf3xx5GagD2AZ4ADgpFkclZDxzl4LXYQ0gKgCngNiI7Hon0ZIWDk8NehDYB+DHwvVAQmZyLHVyQ8vRtAmBdotUZXsZgiYOVKQfSJgD231oAoq+9inRolWsxPiU5AKaAbwBXhILI8L7p4FepT9s2ALYUjZ16DgtFkeE8ZaMTXbl+dZJWATAF/Az4TiiIDOfnDs5t83RdBGA/ytUjDwhFkf5Z78/FMXMAvZ3WATAFfIGyf9D+oSjSn/8ASx38OVQSdRIAU5T3BOzegEjfLnBwcdhrocsA7FWdBRovTyOSwDq82V//Tqbo7CwAppo60bpI2CzSIl2z9/s2+/PLodJSpwEwBSygXEnGNs0hKl3YClxmW5eN33QeAK+AM6sQRA9TE6lZVzX8K0OlQ70FwBRwKHATcGQoijT3AkwteXRnqHSs1wCYak0B66vhN10qldlsqnoX2Lhz6+fTeKrzFL0HoK6AY2pB0AzTUvdwrdHbDOSDGDQAXgF7VG+LjrORPMBC4BDKu8oy/22prujY9i/gXltO0MFbQ//qEwnArhSwL+XnButW4TcbdmnBsM3X7G2VjM+O6n27vY2xza7Y2CRq9tVvz7nyZ6MwqgA0Vd1vsEBYECwQdkY5sPqxXyHELsfazy1Uthn/eC9qNZF5zBqtNV5jjdO/77avtm8/e7Gq+cdaY7a/2P7xWxxTf9l3K7tlAPpQ7HxmqQfHqwft7cz8N/pgjW62a+H1xuxZw6w3zh2ufFz2FADJmgIgWVMAJGsKgGRNAZCsKQCSNQVAsqYASNYUAMmaAiBZUwAkawqAZE0BkKwpAJI1BUCypgBI1hQAyZoCIFlTACRrCoBkTQGQrCkAkjUFQLKmAEjWFADJmgIgWVMAJGsKgGRNAZCsKQCSNQVAsqYASNYUAMmaAiBZUwAkawqAZO3/+ko67p0VLVQAAAAASUVORK5CYII=" width="192" height="192"></div>
+<!---->
+<div class="base-video-player-icon ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!----><!----><!----><!----></div>
+<div class="base-video-timestamp-badge ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">8:17</div>
+<!----><!----></div>
+<div class="base-video-metadata ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="base-video-title ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" title="How &quot;Extended Warranties&quot; Really Work (And Why We Dont Play Thier Game)">How "Extended Warranties" Really Work (And Why We Dont Play Thier Game)</div>
+<!---->
+<div class="base-video-subtitle ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><span class="base-video-platform-name ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">YouTube</span><!----><span class="base-video-separator ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"> &middot; </span><!----><span class="base-video-creator-name ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Six Star Automotive</span><!----></div>
+<!----></div>
+<!----></div>
+<!----><!----><!----><!----><!---->
+<div class="base-video-card has-metadata" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" tabindex="0" role="button" aria-label="It&rsquo;s Time To Talk About Extended Warranty Companies!" data-hveid="3">
+<div class="base-video-container" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<div class="base-video-thumbnail ng-star-inserted" style="background-image: url('https://i.ytimg.com/vi/sD5h1zr_MSk/maxresdefault.jpg'); font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">&nbsp;</div>
+<div class="base-video-scrim ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">&nbsp;</div>
+<div class="base-video-platform-icon-container ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><img style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" src="data:image/png;base64,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" width="192" height="192"></div>
+<!---->
+<div class="base-video-player-icon ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!----><!----><!----><!----></div>
+<div class="base-video-timestamp-badge ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">10:39</div>
+<!----><!----></div>
+<div class="base-video-metadata ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="base-video-title ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" title="It&rsquo;s Time To Talk About Extended Warranty Companies!">It&rsquo;s Time To Talk About Extended Warranty Companies!</div>
+<!---->
+<div class="base-video-subtitle ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><span class="base-video-platform-name ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">YouTube</span><!----><span class="base-video-separator ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"> &middot; </span><!----><span class="base-video-creator-name ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Royalty Auto Service</span><!----></div>
+<!----></div>
+<!----></div>
+<!----><!----><!----><!----><!----><!----></div>
+</div>
+<!----><!----><button class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-badge mat-mdc-button-disabled mat-unthemed mat-badge-overlap mat-badge-above mat-badge-after mat-badge-small mat-badge-hidden ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" disabled="disabled" aria-label="Rolar o carrossel para a esquerda"><!----><!----><!----><!----></button><!----><!----><!----><!----><button class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-badge mat-unthemed mat-badge-overlap mat-badge-above mat-badge-after mat-badge-small mat-badge-hidden ng-star-inserted" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" aria-label="Rolar o carrossel para a direita"><!----><!----><!----><!----></button><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></div>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="24">Navigating Teardown Authorizations and Physical Field Inspections</h2>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">On high-dollar claims&mdash;typically repairs exceeding $1,500 to $2,500, such as full engine replacements, transmission overhauls, or extensive differential rebuilds&mdash;administrators routinely introduce extra verification hurdles.</div>
+<br><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="code-block ng-tns-c3641845170-503 ng-animate-disabled ng-trigger ng-trigger-codeBlockRevealAnimation" style="display: block; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-hveid="0" data-ved="0CAAQhtANahgKEwip7OTqkbyXAxUAAAAAHQAAAAAQggc"><!---->
+<div class="formatted-code-block-internal-container ng-tns-c3641845170-503" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="animated-opacity ng-tns-c3641845170-503" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<pre class="ng-tns-c3641845170-503" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><code class="code-container formatted ng-tns-c3641845170-503 no-decoration-radius" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="text" data-test-id="code-content">+-------------------------------------------------------------------------+
+|                  WARRANTY TEARDOWN &amp; INSPECTION PROTOCOL                |
++-------------------------------------------------------------------------+
+| [ Phase 1: Teardown Request ]   -&gt; Administrator mandates internal check|
+| [ Phase 2: Customer Consent ]   -&gt; Owner authorizes contingent teardown |
+| [ Phase 3: Forensic Exposure ]  -&gt; Oil pan dropped, heads/timing pulled |
+| [ Phase 4: Field Audit Arrival] -&gt; Independent adjuster visits shop     |
+| [ Phase 5: Verification Signoff]-&gt; Inspector files report; claim clears |
++-------------------------------------------------------------------------+
+</code></pre>
+<!----></div>
+</div>
+</div>
+<!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="27">The Contingent Teardown Authorization</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">If an engine suffers lower-end knocking, the administrator will not approve a replacement based on sound alone; they mandate disassembling the engine to expose the failed rod bearings:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="29">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="29,0,0" data-index-in-node="0">The Customer&rsquo;s Financial Risk:</strong> The policyholder must sign a conditional teardown waiver stating that if the failure is caused by an excluded condition (such as oil starvation, neglected maintenance, or aftermarket performance modifications), the customer assumes responsibility for the teardown labor costs.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="29,1,0" data-index-in-node="0">Shop Protective Strategy:</strong> Experienced technicians only recommend disassembling components when diagnostic evidence indicates the failure is a covered mechanical defect. The technician documents oil levels, clean oil filters, and maintenance records before turning a single bolt, eliminating denial claims based on lack of lubrication.</div>
+</li>
+</ul>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="30">Managing Independent Adjuster Audits</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">For substantial claims, third-party adjusters from inspection firms (such as Bureau Veritas or independent contractor networks) visit the repair facility in person:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="32">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="32,0,0" data-index-in-node="0">In-Person Component Audits:</strong> The field adjuster evaluates the dismantled components, measures tolerances with micrometers, checks vehicle maintenance logs, reviews engine computer flash history (checking for unauthorized tuning software), and inspects tire sizes for non-factory diameters.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="32,1,0" data-index-in-node="0">Professional Technician Representation:</strong> The shop&rsquo;s lead technician meets the inspector at the vehicle, points out the fatigue cracks, scored journals, or failed valve guides, and presents supporting diagnostic data to eliminate ambiguity and secure approval.</div>
+</li>
+</ul>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="34">OEM vs. Aftermarket Parts Standards: Sourcing and Markup Advocacy</h2>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">A major dispute point during extended warranty claims adjudication involves parts sourcing. Most service contracts contain clauses granting the administrator the right to supply parts or mandate the use of used (LKQ - Like Kind and Quality) or low-cost aftermarket components.</div>
+<br><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="code-block ng-tns-c3641845170-504 ng-animate-disabled ng-trigger ng-trigger-codeBlockRevealAnimation" style="display: block; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-hveid="0" data-ved="0CAAQhtANahgKEwip7OTqkbyXAxUAAAAAHQAAAAAQgwc"><!---->
+<div class="formatted-code-block-internal-container ng-tns-c3641845170-504" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="animated-opacity ng-tns-c3641845170-504" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<pre class="ng-tns-c3641845170-504" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><code class="code-container formatted ng-tns-c3641845170-504 no-decoration-radius" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="text" data-test-id="code-content">+-----------------------------------------------------------------------------------------+
+|                                  PARTS REPLACEMENT STANDARDS                            |
++--------------------------+-----------------------+------------------+-------------------+
+| Parts Category           | Source &amp; Provenance   | Reliability      | Warranty Strategy |
++--------------------------+-----------------------+------------------+-------------------+
+| OEM (Original Equipment) | Automaker Dealer Net  | Highest / Exact  | Prioritize on Core|
+| Tier-1 OEM Supplier      | Bosch, Denso, ZF, etc.| High / Identical | Preferred Match   |
+| Standard Aftermarket     | Generic Third-Party   | Variable Quality | Reject on Sensors |
+| LKQ / Recycled (Used)    | Salvage Yards / Junks | High Risk / Wear | Verify Mileage    |
++--------------------------+-----------------------+------------------+-------------------+
+</code></pre>
+<!----></div>
+</div>
+</div>
+<!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="37">Pushing for OEM and Tier-1 Sourcing Over Substandard Salvage Parts</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">When an engine or transmission fails, administrators often search nationwide salvage databases to locate used junkyard units to minimize their costs:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="39">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="39,0,0" data-index-in-node="0">Vetting Used Component Feasibility:</strong> If the warranty company mandates an LKQ (used) engine, the repair shop verifies the donor vehicle&rsquo;s verified mileage, maintenance history, structural damage location, and run testing. If the used unit shows excessive mileage, signs of moisture intrusion, or oil leaks, the shop submits formal engineering objections to reject the component.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="39,1,0" data-index-in-node="0">Advocating for Remanufactured or OEM Units:</strong> The shop pushes for factory-remanufactured long blocks or transmissions carrying independent nationwide warranties (such as Jasper or certified OEM units), protecting the customer against repeat breakdowns down the road.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="39,2,0" data-index-in-node="0">Managing Price Discrepancies:</strong> If the administrator only approves funding up to the price of a generic aftermarket part, the shop communicates transparently with the customer, offering the option to cover the difference to upgrade to a genuine OEM part.</div>
+</li>
+</ul>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="41">Deductible Processing, Surcharges, and Direct Corporate Settlement</h2>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">A major benefit of using an experienced warranty repair facility is eliminating the reimbursement burden for the customer. In unequipped shops, motorists are forced to pay the multi-thousand-dollar invoice on personal credit cards and wait 30 to 60 days for a claims check from the warranty provider.</div>
+<br><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="code-block ng-tns-c3641845170-505 ng-animate-disabled ng-trigger ng-trigger-codeBlockRevealAnimation" style="display: block; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-hveid="0" data-ved="0CAAQhtANahgKEwip7OTqkbyXAxUAAAAAHQAAAAAQhAc"><!---->
+<div class="formatted-code-block-internal-container ng-tns-c3641845170-505" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="animated-opacity ng-tns-c3641845170-505" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<pre class="ng-tns-c3641845170-505" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><code class="code-container formatted ng-tns-c3641845170-505 no-decoration-radius" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="text" data-test-id="code-content">                  [ Final Claim Settlement Framework ]
+       +-------------------------------------------------------+
+       |             Total Approved Invoice Amount             |
+       +=======================================================+
+                   |                               |
+                   v                               v
+       [ TPA Direct Corporate Pay ]    [ Customer Responsibility ]
+       Corporate Credit Card / ACH     Stipulated Flat Deductible
+       Covers 100% Approved Claims     Plus Non-Covered Items:
+       Labor, Covered Components       (Fluids, Belts, Difference)
+</code></pre>
+<!----></div>
+</div>
+</div>
+<!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="44">Deductible Mechanics: Per-Visit vs. Per-Claim</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Customer deductibles vary depending on policy tiers:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="46">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="46,0,0" data-index-in-node="0">Flat Per-Visit Deductibles:</strong> The customer pays a single deductible (typically $50, $100, or $200) for the entire repair visit, regardless of how many individual systems are repaired (e.g., repairing both an alternator and an A/C condenser under one visit costs a single deductible).</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="46,1,0" data-index-in-node="0">Per-Component Deductibles:</strong> Some policies enforce separate deductibles for each isolated repair line item. The service advisor alerts the customer to these nuances before finalizing repair work.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="46,2,0" data-index-in-node="0">Disappearing Deductibles:</strong> Some policies waive the deductible if the vehicle is repaired at specific affiliate facilities.</div>
+</li>
+</ul>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="47">Transparent Management of Non-Covered Charges</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">While comprehensive exclusionary policies cover primary mechanical and electrical assemblies, secondary shop supplies and routine consumables are commonly excluded:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="49">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="49,0,0" data-index-in-node="0">Shop Supplies and Environmental Fees:</strong> Solvents, rags, hazardous waste disposal fees, and basic fasteners are routinely denied by administrators.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="49,1,0" data-index-in-node="0">Fluids, Refrigerants, and Filters:</strong> Some policies cover engine coolant or transmission fluid only if required as a direct result of a covered component replacement, while denying maintenance filter elements.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="49,2,0" data-index-in-node="0">Transparent Estimate Delivery:</strong> The facility provides a line-by-line financial breakdown before turning a wrench, detailing what the warranty company is paying via direct corporate credit card or ACH transfer, and what the customer's out-of-pocket balance will be upon vehicle delivery.</div>
+</li>
+</ul>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="51">Coastal Environmental Stress: Maintenance Verification in the Lowcountry</h2>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Warranty administrators routinely request vehicle maintenance records to verify that a failure was not caused by negligence. In the coastal Lowcountry environment, proper maintenance documentation is essential.</div>
+<br><!----><!----><!----><!----><!----><!----><!----><!---->
+<div class="code-block ng-tns-c3641845170-506 ng-animate-disabled ng-trigger ng-trigger-codeBlockRevealAnimation" style="display: block; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-hveid="0" data-ved="0CAAQhtANahgKEwip7OTqkbyXAxUAAAAAHQAAAAAQhQc"><!---->
+<div class="formatted-code-block-internal-container ng-tns-c3641845170-506" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div class="animated-opacity ng-tns-c3641845170-506" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><!---->
+<pre class="ng-tns-c3641845170-506" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><code class="code-container formatted ng-tns-c3641845170-506 no-decoration-radius" style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" role="text" data-test-id="code-content">+-------------------------------------------------------------------------+
+|                  WARRANTY COMPLIANCE PREVENTATIVE MATRIX                |
++--------------------------+-----------------------+------------------+-------------------+
+| Environmental Factor     | Mechanical Risk       | Warranty Risk    | Compliance Action |
++--------------------------+-----------------------+------------------+-------------------+
+| High Ambient Heat (95&deg;F+)| Transmission Fluid Ox.| Fluid Neglect    | Document Flushes  |
+| Extreme Humidity (85% RH)| Electrical Ground Rust| Corroded Wiring  | Log Sensor Scans  |
+| Stop-and-Go Urban Routes | Engine Sludge Buildup | Maintenance Denial| Keep Oil Invoices |
+| Coastal Salt-Air Spray   | Radiator / Condenser  | Corrosion Exclusion Document Rinsing |
++--------------------------+-----------------------+------------------+-------------------+
+</code></pre>
+<!----></div>
+</div>
+</div>
+<!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="54">Defending Against Claims Denials for "Lack of Maintenance"</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">When an internal mechanical engine failure occurs, warranty companies frequently request 12 to 24 months of oil change receipts:</div>
+<br>
+<ul style="padding-inline-start: 32px; font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="56">
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="56,0,0" data-index-in-node="0">Digital Maintenance Archiving:</strong> An established repair shop maintains digital, VIN-linked records of all oil services, filter replacements, fluid exchanges, and safety inspections.</div>
+</li>
+<li style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;"><strong style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="56,1,0" data-index-in-node="0">Proving Proper Care:</strong> If an administrator attempts to deny a claim citing sludge formation, the shop provides stamped service receipts and photographic proof of clean valve trains, ensuring the claim moves forward to approval.</div>
+</li>
+</ul>
+<h2 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="58">Frequently Asked Questions (FAQ)</h2>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="59">What is the process for using an extended car warranty at a repair shop in North Charleston?</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Upon vehicle intake, the customer provides their extended warranty policy information, contract number, and administrator contact details. The repair shop performs diagnostic testing to isolate the root failure, drafts a detailed parts and labor estimate, and contacts the warranty administrator directly to initiate the claim. Once the adjuster approves the repair order and issues an official Prior Authorization (PA) number, the shop completes the repairs. The customer pays only their contracted deductible and any non-covered consumables, while the warranty company pays the shop directly.</div>
+<br>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="61">What happens if the warranty company wants to send an inspector to look at my car?</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">For high-value claims (typically repairs exceeding $1,500, such as engine or transmission replacements), administrators frequently dispatch an independent physical inspector to verify the failure. The repair facility coordinates this inspection, shows the disassembled components and diagnostic data directly to the adjuster, and provides supporting documentation to ensure the claim receives formal approval.</div>
+<br>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="63">Can a warranty company deny a repair claim if I don't have my oil change receipts?</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Yes. Many Vehicle Service Contracts contain fine-print clauses requiring the vehicle owner to follow manufacturer-recommended maintenance schedules. If an engine or lubricated internal component fails and the owner cannot produce proof of routine oil changes, the administrator may deny coverage citing owner negligence. Working with a shop that maintains digital maintenance records helps protect policyholders against these denials.</div>
+<br>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="65">Why do some repair shops refuse to accept third-party extended warranties?</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Many independent shops refuse extended warranties due to administrative burdens: long phone hold times with claims adjusters, delayed approvals, disputes over standard labor guide hours, mandatory teardown delays, and restrictions on parts markups. An experienced warranty repair shop has dedicated service personnel who manage these communications smoothly, handling the paperwork on the customer's behalf.</div>
+<br>
+<h3 style="font-family: Google Sans, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;" data-path-to-node="67">Will my extended warranty cover diagnostic fees and rental car costs?</h3>
+<div style="font-family: Google Sans Text, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">Coverage depends on the specific policy terms. Most comprehensive exclusionary policies reimburse diagnostic fees once the failure is confirmed as a covered component, and provide a daily rental car allowance (typically $35 to $50 per day) while the vehicle is in the shop for authorized repairs. Basic powertrain contracts may exclude diagnostic time and rentals. The shop reviews the policy fine print during intake to clarify all eligible reimbursements.</div>
+</div>
+        </div>
+
+        
+    </article>
+</main>
+
+<footer class="gs-footer">
+    <div class="container">
+        <div class="gs-footer__social">
+            
+            
+            
+            
+        </div>
+        
+        <ul class="gs-footer__menu">
+            
+        </ul>
+        
+        
+        <div class="gs-footer__copyright">
+            Copyright © 2026 Patrulha Mirim
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Carrossel nativo simplificado (substituto das chamadas de script originais caso tenha blocos CMS)
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(e) {
+            const btnPrev = e.target.closest('.btn-carousel-prev');
+            if (btnPrev) {
+                const wrapper = btnPrev.closest('div[id^="carrossel-"]');
+                const track = wrapper.querySelector('.dsc-track');
+                const item = track.querySelector('.dsc-item');
+                if (track && item) {
+                    const scrollAmount = item.offsetWidth + 20;
+                    if (track.scrollLeft <= 5) { track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' }); } 
+                    else { track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }); }
+                }
+                return;
+            }
+            const btnNext = e.target.closest('.btn-carousel-next');
+            if (btnNext) {
+                const wrapper = btnNext.closest('div[id^="carrossel-"]');
+                const track = wrapper.querySelector('.dsc-track');
+                const item = track.querySelector('.dsc-item');
+                if (track && item) {
+                    const scrollAmount = item.offsetWidth + 20;
+                    if (track.scrollLeft + track.offsetWidth >= track.scrollWidth - 5) { track.scrollTo({ left: 0, behavior: 'smooth' }); } 
+                    else { track.scrollBy({ left: scrollAmount, behavior: 'smooth' }); }
+                }
+                return;
+            }
+        });
+    });
+</script>
+</body>
+</html>
